@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submit your requirement — Axiotrix</title>
+  <meta name="description" content="Tell Axiotrix what you need and get a clear plan, timeline and price within one working day.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div id="top"></div>
+  <section class="section"><div class="wrap" style="max-width:760px">
+    <div class="sh center reveal">
+      <span class="eyebrow" id="e"></span>
+      <h2 id="t"></h2>
+      <p class="lead" id="d"></p>
+    </div>
+
+    <div class="panel reveal" id="formwrap" style="padding:30px">
+      <form class="form" id="reqform">
+        <div class="field-row">
+          <div class="field"><label for="name">Your name <span class="req">*</span></label>
+            <input id="name" name="name" required placeholder="e.g. Sapna"></div>
+          <div class="field"><label for="business">Business name</label>
+            <input id="business" name="business" placeholder="e.g. Nosh7"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="phone">WhatsApp number <span class="req">*</span></label>
+            <input id="phone" name="phone" required inputmode="tel" placeholder="e.g. 98XXXXXXXX"></div>
+          <div class="field"><label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@business.com"></div>
+        </div>
+
+        <div class="field"><label>What do you need? <span class="req">*</span></label>
+          <div class="chips" id="svcchips"></div></div>
+
+        <div class="field-row">
+          <div class="field"><label for="budget">Rough budget</label>
+            <select id="budget" name="budget"><option value="">Select...</option></select></div>
+          <div class="field"><label for="timeline">How soon?</label>
+            <select id="timeline" name="timeline">
+              <option value="">Select...</option>
+              <option>This week</option><option>This month</option>
+              <option>Next 1-3 months</option><option>Just exploring</option></select></div>
+        </div>
+
+        <div class="field"><label for="msg">Describe the problem in your words <span class="req">*</span></label>
+          <textarea id="msg" name="msg" required placeholder="e.g. Customers message me on WhatsApp but I lose track of orders and forget to follow up."></textarea></div>
+
+        <button class="btn btn-primary" type="submit" style="justify-content:center" id="submitbtn">
+          Send my requirement
+        </button>
+        <p style="font-size:.82rem;color:var(--muted);text-align:center;margin-top:-4px">
+          One working day to a plan. No spam, ever.</p>
+      </form>
+    </div>
+
+    <div class="panel reveal" id="success" style="display:none;padding:44px;text-align:center">
+      <div style="width:64px;height:64px;border-radius:50%;background:#f0fdf4;color:var(--green);display:grid;place-items:center;margin:0 auto 18px">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h2 id="st" style="margin-bottom:10px"></h2>
+      <p class="lead" id="sd" style="margin:0 auto 24px"></p>
+      <a class="btn btn-indigo" id="waopen" target="_blank" rel="noopener">Continue on WhatsApp</a>
+    </div>
+  </div></section>
+
+  <div id="foot"></div>
+
+  <script src="assets/content.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    const C = window.axContent;
+    document.getElementById('top').innerHTML = window.axHeader('');
+    document.getElementById('foot').innerHTML = window.axFooter();
+    document.getElementById('e').textContent = C.submit.eyebrow;
+    document.getElementById('t').textContent = C.submit.title;
+    document.getElementById('d').textContent = C.submit.text;
+
+    // service chips
+    document.getElementById('svcchips').innerHTML = C.submit.services.map((s,i) => `
+      <div class="chip"><input type="checkbox" id="sv${i}" name="services" value="${s}">
+      <label for="sv${i}">${s}</label></div>`).join("");
+    // budgets
+    const bsel = document.getElementById('budget');
+    C.submit.budgets.forEach(b => { const o=document.createElement('option'); o.textContent=b; bsel.appendChild(o); });
+
+    document.getElementById('reqform').addEventListener('submit', function(e){
+      e.preventDefault();
+      const f = e.target;
+      const services = [...f.querySelectorAll('input[name="services"]:checked')].map(x=>x.value);
+      if (!services.length) { window.axToast('Please pick at least one thing you need.'); return; }
+      const lead = {
+        id: Date.now(), at: new Date().toISOString(),
+        name: f.name.value.trim(), business: f.business.value.trim(),
+        phone: f.phone.value.trim(), email: f.email.value.trim(),
+        services, budget: f.budget.value, timeline: f.timeline.value,
+        msg: f.msg.value.trim(), status: 'new'
+      };
+      window.AX.addLead(lead);   // sample store — swap for Supabase insert later
+
+      // build WhatsApp handoff message to Axiotrix
+      const text = `New requirement from ${lead.name}${lead.business?' ('+lead.business+')':''}%0A`
+        + `Need: ${services.join(', ')}%0A`
+        + (lead.budget?`Budget: ${lead.budget}%0A`:'')
+        + (lead.timeline?`Timeline: ${lead.timeline}%0A`:'')
+        + `Details: ${lead.msg}`;
+      const wa = `https://wa.me/${C.global.whatsapp}?text=${text}`;
+      document.getElementById('waopen').href = wa;
+
+      document.getElementById('formwrap').style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+      document.getElementById('st').textContent = C.submit.successTitle;
+      document.getElementById('sd').textContent = C.submit.successText;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.axReveal();
+  </script>
+</body>
+</html>

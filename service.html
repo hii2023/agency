@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Service — Axiotrix</title>
+  <meta name="description" content="Use-case focused solutions from Axiotrix.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script src="assets/content.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    const slug = new URLSearchParams(location.search).get('s') || 'website-creation';
+    document.getElementById('app').innerHTML = window.axRenderService(slug);
+    window.axReveal();
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Axiotrix — Get seen. Get chosen.</title>
+  <meta name="description" content="Axiotrix builds websites, tools, reports, automation and WhatsApp systems that make small businesses impossible to miss online.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="assets/content.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    const C = window.axContent, I = window.axIcon;
+
+    const services = C.services.map(s => `
+      <a class="card reveal" href="service.html?s=${s.slug}">
+        <div class="ic">${I(s.icon)}</div>
+        <h3>${s.eyebrow}</h3>
+        <p>${s.text}</p>
+        ${s.impact ? `<div class="impact" style="margin-top:16px">${I('bolt')}<div><b>Impact</b><span>${s.impact}</span></div></div>` : ''}
+        <span class="more">See the use cases ${I('arrow')}</span>
+      </a>`).join("");
+
+    const stats = C.home.stats.map(s => `
+      <div class="stat reveal"><b>${s.n}</b><span>${s.l}</span></div>`).join("");
+
+    const heroPanel = C.services.slice(0,5).map(s => `
+      <div class="panel-row">
+        <div class="ic">${I(s.icon)}</div>
+        <div><b>${s.eyebrow}</b><span>${s.nav}</span></div>
+        <span class="tag">live</span>
+      </div>`).join("");
+
+    document.getElementById('app').innerHTML = `
+      ${window.axHeader('')}
+
+      <section class="hero"><div class="wrap"><div class="hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">${C.home.heroEyebrow}</span>
+          <h1>${C.home.heroTitle}</h1>
+          <p class="lead">${C.home.heroText}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="submit.html">${C.home.heroCtaPrimary} ${I('arrow')}</a>
+            <a class="btn btn-ghost" href="#services">${C.home.heroCtaSecondary}</a>
+          </div>
+          <div class="hero-note">${I('checkc')} ${C.home.heroNote}</div>
+        </div>
+        <div class="reveal">
+          <div class="panel">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Your visibility engine</div>
+            ${heroPanel}
+          </div>
+        </div>
+      </div></div></section>
+
+      <section class="section-sm soft"><div class="wrap">
+        <div class="stats">${stats}</div>
+      </div></section>
+
+      <section class="section" id="services"><div class="wrap">
+        <div class="sh center"><span class="eyebrow">${C.home.servicesEyebrow}</span>
+          <h2>${C.home.servicesTitle}</h2>
+          <p class="lead">${C.home.servicesText}</p></div>
+        <div class="grid grid-3">${services}</div>
+      </div></section>
+
+      <section class="section soft"><div class="wrap"><div class="grid grid-2" style="gap:56px;align-items:center">
+        <div class="reveal"><span class="eyebrow">${C.home.whyEyebrow}</span>
+          <h2 style="margin-bottom:16px">${C.home.whyTitle}</h2>
+          <p class="lead" style="margin-bottom:26px">${C.home.whyText}</p>
+          <ul class="checks">
+            <li>${I('checkc')}<span>One team for the whole system, not five vendors to chase.</span></li>
+            <li>${I('checkc')}<span>Built around your customer's next action, not decoration.</span></li>
+            <li>${I('checkc')}<span>You own everything and can run it yourself.</span></li>
+          </ul>
+        </div>
+        <div class="reveal"><div class="panel">
+          <div class="panel-row"><div class="ic">${I('shield')}</div><div><b>You own it all</b><span>Code, data, accounts</span></div></div>
+          <div class="panel-row"><div class="ic">${I('clock')}</div><div><b>First draft in 48h</b><span>See it before you commit</span></div></div>
+          <div class="panel-row"><div class="ic">${I('bolt')}</div><div><b>Runs without you</b><span>Automations never sleep</span></div></div>
+          <div class="panel-row"><div class="ic">${I('star')}</div><div><b>One partner</b><span>Websites to WhatsApp</span></div></div>
+        </div></div>
+      </div></div></section>
+
+      ${window.axCta()}
+      ${window.axFooter()}
+    `;
+    window.axReveal();
+  </script>
+</body>
+</html>

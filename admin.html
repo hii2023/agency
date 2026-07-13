@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control Panel — Axiotrix</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    body { background: var(--bg-soft); }
+    .adm { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+    .side { background: #0f0e24; padding: 22px 16px; position: sticky; top: 0; height: 100vh; overflow:auto; }
+    .side .brand { color:#fff; margin-bottom:22px; font-size:1.05rem }
+    .side a { display:block; padding:10px 13px; border-radius:9px; color:#9ca0c4; font-size:.92rem; font-weight:500; cursor:pointer; margin-bottom:3px; transition:all .15s }
+    .side a:hover { background:#1c1a3d; color:#fff }
+    .side a.on { background:var(--indigo); color:#fff }
+    .side .grp { font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#5b5f88; margin:16px 13px 6px }
+    .main { padding: 34px 40px; max-width: 860px; }
+    .main h1 { font-size:1.7rem; margin-bottom:6px }
+    .sub { color:var(--muted); margin-bottom:26px; font-size:.95rem }
+    .card2 { background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px; margin-bottom:18px; box-shadow:var(--shadow) }
+    .card2 h3 { font-size:1.05rem; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--line) }
+    .fg { margin-bottom:15px }
+    .fg label { display:block; font-size:.82rem; font-weight:600; color:var(--ink); margin-bottom:6px }
+    .fg input, .fg textarea { width:100%; font:inherit; font-size:.92rem; padding:10px 12px; border:1px solid var(--line); border-radius:8px; color:var(--ink) }
+    .fg input:focus, .fg textarea:focus { outline:none; border-color:var(--indigo); box-shadow:0 0 0 3px var(--indigo-50) }
+    .fg textarea { min-height:74px; resize:vertical }
+    .bar { position:sticky; bottom:0; background:rgba(248,250,252,.92); backdrop-filter:blur(8px); border-top:1px solid var(--line); padding:16px 0; display:flex; gap:12px; margin-top:20px }
+    .muted-note { font-size:.82rem; color:var(--muted) }
+    .leadrow { border:1px solid var(--line); border-radius:10px; padding:16px; margin-bottom:12px; background:#fff }
+    .leadrow .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px }
+    .leadrow b { color:var(--ink) }
+    .badge { font-size:.72rem; font-weight:600; padding:3px 9px; border-radius:20px; background:var(--indigo-50); color:var(--indigo-600) }
+    .leadmeta { font-size:.85rem; color:var(--muted); margin-bottom:8px; display:flex; gap:14px; flex-wrap:wrap }
+    .leadmsg { font-size:.9rem; color:var(--body); background:var(--bg-soft); padding:10px 12px; border-radius:8px }
+    .empty { text-align:center; padding:50px; color:var(--muted) }
+    .subgrid { display:grid; grid-template-columns:1fr 1fr; gap:14px }
+    .arrayitem { border:1px dashed var(--line); border-radius:9px; padding:14px; margin-bottom:12px; position:relative }
+    .arrayitem .lbl { font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--indigo); font-weight:600; margin-bottom:10px }
+    @media(max-width:760px){ .adm{grid-template-columns:1fr} .side{position:static;height:auto} .main{padding:24px} .subgrid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <div class="adm">
+    <nav class="side">
+      <div class="brand">Axiotrix <span style="color:#5b5f88;font-weight:500">C-Panel</span></div>
+      <div id="nav"></div>
+      <div class="grp">Data</div>
+      <a onclick="exportJSON()">Export content</a>
+      <a onclick="document.getElementById('imp').click()">Import content</a>
+      <a onclick="doReset()" style="color:#f87171">Reset to default</a>
+      <input type="file" id="imp" accept="application/json" style="display:none" onchange="importJSON(event)">
+      <div class="grp">Site</div>
+      <a href="index.html" target="_blank">Open website ↗</a>
+    </nav>
+    <main class="main">
+      <div id="view"></div>
+    </main>
+  </div>
+
+  <script src="assets/content.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    let C = window.AX.loadContent();
+    let cur = 'global';
+
+    const SECTIONS = [
+      { grp:'Site' },
+      { id:'global', label:'Global & contact' },
+      { id:'home', label:'Home page' },
+      { grp:'Service pages' },
+      ...C.services.map(s => ({ id:'svc:'+s.slug, label:s.eyebrow })),
+      { grp:'Agency' },
+      { id:'packages', label:'Packages & pricing' },
+      { id:'about', label:'About & values' },
+      { id:'testimonials', label:'Testimonials' },
+      { id:'faq', label:'FAQ' },
+      { grp:'Pages' },
+      { id:'submit', label:'Submit form' },
+      { id:'leads', label:'Leads inbox' },
+    ];
+
+    function buildNav(){
+      document.getElementById('nav').innerHTML = SECTIONS.map(s =>
+        s.grp ? `<div class="grp">${s.grp}</div>`
+              : `<a class="${s.id===cur?'on':''}" onclick="go('${s.id}')">${s.label}</a>`).join("");
+    }
+    function go(id){ cur=id; buildNav(); render(); window.scrollTo(0,0); }
+
+    // helpers to build a field
+    function field(label, path, multi){
+      const val = getPath(C, path) ?? "";
+      const el = multi
+        ? `<textarea data-path="${path}">${escapeHtml(val)}</textarea>`
+        : `<input data-path="${path}" value="${escapeAttr(val)}">`;
+      return `<div class="fg"><label>${label}</label>${el}</div>`;
+    }
+    function getPath(o,p){ return p.split('.').reduce((a,k)=> a?.[k], o); }
+    function setPath(o,p,v){ const ks=p.split('.'); let x=o; for(let i=0;i<ks.length-1;i++){x=x[ks[i]];} x[ks[ks.length-1]]=v; }
+    function escapeHtml(s){ return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+    function escapeAttr(s){ return String(s).replace(/"/g,'&quot;'); }
+
+    function saveBar(){
+      return `<div class="bar">
+        <button class="btn btn-primary" onclick="save()">Save changes</button>
+        <a class="btn btn-ghost" href="index.html" target="_blank">Preview site</a>
+        <span class="muted-note" style="align-self:center">Saved to this browser. Wire to Supabase for a live shared CMS.</span>
+      </div>`;
+    }
+
+    function render(){
+      const v = document.getElementById('view');
+      if (cur==='global') v.innerHTML = renderGlobal();
+      else if (cur==='home') v.innerHTML = renderHome();
+      else if (cur==='packages') v.innerHTML = renderPackages();
+      else if (cur==='about') v.innerHTML = renderAbout();
+      else if (cur==='testimonials') v.innerHTML = renderTestimonials();
+      else if (cur==='faq') v.innerHTML = renderFaq();
+      else if (cur==='submit') v.innerHTML = renderSubmit();
+      else if (cur==='leads') v.innerHTML = renderLeads();
+      else if (cur.startsWith('svc:')) v.innerHTML = renderService(cur.slice(4));
+      bindInputs();
+    }
+
+    function head(t,s){ return `<h1>${t}</h1><p class="sub">${s}</p>`; }
+
+    function renderGlobal(){
+      return head('Global & contact','Brand name, tagline and the contact details used across every page and the WhatsApp buttons.')
+      + `<div class="card2"><h3>Brand</h3>
+          ${field('Brand name','global.brand')}
+          ${field('Tagline','global.tagline')}
+          ${field('Footer blurb','global.footerBlurb',true)}</div>`
+      + `<div class="card2"><h3>Contact & WhatsApp</h3>
+          ${field('WhatsApp number (with country code, no +)','global.whatsapp')}
+          <div class="subgrid">${field('Email','global.email')}${field('Phone','global.phone')}</div></div>`
+      + saveBar();
+    }
+
+    function renderHome(){
+      let out = head('Home page','The hero, section headings and the stat strip on the landing page.')
+      + `<div class="card2"><h3>Hero</h3>
+          ${field('Eyebrow','home.heroEyebrow')}
+          ${field('Title','home.heroTitle')}
+          ${field('Text','home.heroText',true)}
+          <div class="subgrid">${field('Primary button','home.heroCtaPrimary')}${field('Secondary button','home.heroCtaSecondary')}</div>
+          ${field('Note under buttons','home.heroNote')}</div>`
+      + `<div class="card2"><h3>Services section</h3>
+          ${field('Eyebrow','home.servicesEyebrow')}
+          ${field('Title','home.servicesTitle')}
+          ${field('Text','home.servicesText',true)}</div>`
+      + `<div class="card2"><h3>Why Axiotrix section</h3>
+          ${field('Eyebrow','home.whyEyebrow')}
+          ${field('Title','home.whyTitle')}
+          ${field('Text','home.whyText',true)}</div>`;
+      let stats = C.home.stats.map((s,i)=>`<div class="arrayitem"><div class="lbl">Stat ${i+1}</div>
+        <div class="subgrid">${field('Number','home.stats.'+i+'.n')}${field('Label','home.stats.'+i+'.l')}</div></div>`).join("");
+      out += `<div class="card2"><h3>Stat strip</h3>${stats}</div>` + saveBar();
+      return out;
+    }
+
+    function renderService(slug){
+      const idx = C.services.findIndex(x=>x.slug===slug);
+      const s = C.services[idx]; const b='services.'+idx;
+      let uc = s.usecases.map((u,i)=>`<div class="arrayitem"><div class="lbl">Use case ${i+1}</div>
+        ${field('Title',b+'.usecases.'+i+'.t')}${field('Description',b+'.usecases.'+i+'.d',true)}${field('Impact (the result it creates)',b+'.usecases.'+i+'.i',true)}</div>`).join("");
+      let dl = s.deliverables.map((d,i)=>field('Item '+(i+1),b+'.deliverables.'+i)).join("");
+      let st = s.steps.map((x,i)=>`<div class="arrayitem"><div class="lbl">Step ${i+1}</div>
+        ${field('Title',b+'.steps.'+i+'.t')}${field('Description',b+'.steps.'+i+'.d',true)}</div>`).join("");
+      return head(s.eyebrow+' page','Everything on this use-case page: hero, the problem, use cases, what-you-get and the steps.')
+        + `<div class="card2"><h3>Hero</h3>
+            ${field('Nav label',b+'.nav')}
+            ${field('Eyebrow',b+'.eyebrow')}
+            ${field('Title',b+'.title')}
+            ${field('Text',b+'.text',true)}
+            ${field('Hero note',b+'.heroNote')}
+            ${field('The problem',b+'.problem',true)}
+            ${field('The impact (headline result, shown on home card + hero)',b+'.impact',true)}</div>`
+        + `<div class="card2"><h3>Use cases</h3>${uc}</div>`
+        + `<div class="card2"><h3>What you get</h3>${dl}</div>`
+        + `<div class="card2"><h3>How it works (steps)</h3>${st}</div>`
+        + saveBar();
+    }
+
+    function renderPackages(){
+      let tiers = C.packages.tiers.map((t,i)=>{
+        let feats = t.features.map((f,j)=>field('Feature '+(j+1),'packages.tiers.'+i+'.features.'+j)).join("");
+        return `<div class="card2"><h3>Tier ${i+1}: ${t.name}</h3>
+          <div class="subgrid">${field('Name','packages.tiers.'+i+'.name')}${field('Price','packages.tiers.'+i+'.price')}</div>
+          ${field('Tagline','packages.tiers.'+i+'.tagline')}
+          ${field('Button text','packages.tiers.'+i+'.cta')}
+          <div class="fg"><label>Highlighted? (type true or false)</label><input data-path="packages.tiers.${i}.featured" value="${t.featured}"></div>
+          <div style="margin-top:8px"><b style="font-size:.82rem;color:var(--ink)">Features</b>${feats}</div></div>`;
+      }).join("");
+      return head('Packages & pricing','Your three pricing tiers, the intro and the small print. Set exactly one tier as highlighted.')
+        + `<div class="card2"><h3>Intro</h3>
+            ${field('Eyebrow','packages.eyebrow')}${field('Title','packages.title')}${field('Text','packages.text',true)}${field('Small print note','packages.note',true)}</div>`
+        + tiers + saveBar();
+    }
+    function renderAbout(){
+      let vals = C.about.values.map((v,i)=>`<div class="arrayitem"><div class="lbl">Value ${i+1}</div>
+        ${field('Title','about.values.'+i+'.t')}${field('Description','about.values.'+i+'.d',true)}</div>`).join("");
+      return head('About & values','The About page hero and the three things you never compromise on.')
+        + `<div class="card2"><h3>Hero</h3>
+            ${field('Eyebrow','about.eyebrow')}${field('Title','about.title')}${field('Text','about.text',true)}</div>`
+        + `<div class="card2"><h3>Values</h3>${vals}</div>` + saveBar();
+    }
+    function renderTestimonials(){
+      let ts = C.testimonials.map((t,i)=>`<div class="arrayitem"><div class="lbl">Testimonial ${i+1}</div>
+        ${field('Quote','testimonials.'+i+'.quote',true)}
+        <div class="subgrid">${field('Name','testimonials.'+i+'.name')}${field('Role','testimonials.'+i+'.role')}</div></div>`).join("");
+      return head('Testimonials','Client quotes shown on the About page.')
+        + `<div class="card2"><h3>Client quotes</h3>${ts}</div>` + saveBar();
+    }
+    function renderFaq(){
+      let fs = C.faq.map((f,i)=>`<div class="arrayitem"><div class="lbl">Question ${i+1}</div>
+        ${field('Question','faq.'+i+'.q')}${field('Answer','faq.'+i+'.a',true)}</div>`).join("");
+      return head('FAQ','The questions and answers on the About page.')
+        + `<div class="card2"><h3>Questions</h3>${fs}</div>` + saveBar();
+    }
+    function renderSubmit(){
+      let sv = C.submit.services.map((x,i)=>field('Option '+(i+1),'submit.services.'+i)).join("");
+      let bd = C.submit.budgets.map((x,i)=>field('Option '+(i+1),'submit.budgets.'+i)).join("");
+      return head('Submit form','The requirement form copy, the options customers pick, and the thank-you message.')
+        + `<div class="card2"><h3>Intro</h3>
+            ${field('Eyebrow','submit.eyebrow')}${field('Title','submit.title')}${field('Text','submit.text',true)}</div>`
+        + `<div class="card2"><h3>Success message</h3>
+            ${field('Success title','submit.successTitle')}${field('Success text','submit.successText',true)}</div>`
+        + `<div class="card2"><h3>"What do you need?" options</h3>${sv}</div>`
+        + `<div class="card2"><h3>Budget options</h3>${bd}</div>`
+        + saveBar();
+    }
+
+    function renderLeads(){
+      const leads = window.AX.loadLeads();
+      let out = head('Leads inbox','Every requirement submitted through the site. In the live build these save to Supabase and ping your WhatsApp.');
+      if (!leads.length) return out + `<div class="card2"><div class="empty">No leads yet. Submit the form on the site to see one appear here.</div></div>`;
+      out += `<p class="muted-note" style="margin-bottom:16px">${leads.length} lead${leads.length>1?'s':''}</p>`;
+      out += leads.map(l=>`<div class="leadrow">
+        <div class="top"><b>${escapeHtml(l.name)}${l.business?' · '+escapeHtml(l.business):''}</b>
+          <span class="badge">${(l.services||[]).join(', ')}</span></div>
+        <div class="leadmeta">
+          <span>📱 ${escapeHtml(l.phone)}</span>
+          ${l.email?`<span>✉ ${escapeHtml(l.email)}</span>`:''}
+          ${l.budget?`<span>${escapeHtml(l.budget)}</span>`:''}
+          ${l.timeline?`<span>${escapeHtml(l.timeline)}</span>`:''}
+          <span>${new Date(l.at).toLocaleString()}</span>
+        </div>
+        <div class="leadmsg">${escapeHtml(l.msg)}</div>
+        <div style="margin-top:10px"><a class="btn btn-primary" style="padding:8px 14px;font-size:.85rem" target="_blank"
+          href="https://wa.me/${l.phone.replace(/\D/g,'')}">Reply on WhatsApp</a></div>
+      </div>`).join("");
+      return out;
+    }
+
+    function bindInputs(){
+      document.querySelectorAll('[data-path]').forEach(el=>{
+        el.addEventListener('input', ()=> setPath(C, el.dataset.path, el.value));
+      });
+    }
+    function save(){ window.AX.saveContent(C); window.axToast('Saved. Refresh the site to see changes.'); }
+    function doReset(){ if(confirm('Reset all content to the original defaults? This clears your edits in this browser.')){ window.AX.resetContent(); C=window.AX.loadContent(); render(); window.axToast('Reset to defaults.'); } }
+    function exportJSON(){
+      const blob=new Blob([JSON.stringify(C,null,2)],{type:'application/json'});
+      const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='axiotrix-content.json'; a.click();
+    }
+    function importJSON(e){
+      const f=e.target.files[0]; if(!f) return;
+      const r=new FileReader(); r.onload=()=>{ try{ C=JSON.parse(r.result); window.AX.saveContent(C); render(); window.axToast('Imported.'); }catch{ window.axToast('Invalid file.'); } };
+      r.readAsText(f);
+    }
+
+    buildNav(); render();
+  </script>
+</body>
+</html>
