@@ -118,6 +118,48 @@ p { margin: 0; }
 .panel-row span { font-size: .85rem; color: var(--muted); }
 .panel-row .tag { margin-left: auto; font-size: .72rem; font-weight: 600; color: var(--green); background: #f0fdf4; padding: 4px 9px; border-radius: 20px; }
 
+/* Hero journey visual (customer story, not a dashboard) */
+.journey { position: relative; display: grid; gap: 0; max-width: 420px; margin-left: auto; }
+.j-step { display: grid; gap: 8px; }
+.j-cap {
+  font-family: 'IBM Plex Mono', monospace; font-size: .7rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+.j-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+.j-line { width: 2px; height: 22px; margin: 6px 0 6px 21px; background: linear-gradient(180deg, var(--line), #c7d2fe); border-radius: 2px; }
+
+.j-search { display: flex; align-items: center; gap: 12px; padding: 14px 16px; color: var(--ink); font-size: .95rem; }
+.j-search svg { width: 18px; height: 18px; color: var(--indigo); flex: 0 0 auto; }
+
+.j-site { overflow: hidden; }
+.j-site-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: var(--bg-soft); border-bottom: 1px solid var(--line); }
+.j-site-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.j-site-bar em { font-style: normal; font-size: .78rem; color: var(--muted); margin-left: 8px; font-family: 'IBM Plex Mono', monospace; }
+.j-site-body { padding: 16px; display: grid; gap: 12px; }
+.j-site-body b { color: var(--ink); font-size: .98rem; font-weight: 600; }
+.j-btn {
+  display: inline-block; justify-self: start; background: var(--green); color: #fff;
+  font-size: .82rem; font-weight: 600; padding: 8px 14px; border-radius: 8px;
+}
+
+.j-chat { padding: 14px 16px; display: grid; gap: 9px; background: #f7f9f4; }
+.j-bubble { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: .88rem; line-height: 1.45; }
+.j-bubble.in { background: #fff; border: 1px solid var(--line); color: var(--ink); justify-self: start; border-bottom-left-radius: 4px; }
+.j-bubble.out { background: #dcfce7; color: #14532d; justify-self: end; border-bottom-right-radius: 4px; }
+
+.j-badge {
+  position: absolute; right: -14px; bottom: -18px;
+  display: flex; align-items: center; gap: 8px;
+  background: var(--ink); color: #fff; font-size: .78rem; font-weight: 500;
+  padding: 10px 14px; border-radius: 10px; box-shadow: var(--shadow-lift);
+}
+.j-badge svg { width: 15px; height: 15px; color: #4ade80; }
+
+@media (max-width: 900px) {
+  .journey { max-width: 100%; margin: 0; }
+  .j-badge { position: static; justify-self: start; margin-top: 14px; }
+}
+
 /* Cards grid */
 .grid { display: grid; gap: 22px; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }

@@ -27,12 +27,36 @@
     const stats = C.home.stats.map(s => `
       <div class="stat reveal"><b>${s.n}</b><span>${s.l}</span></div>`).join("");
 
-    const heroPanel = C.services.slice(0,5).map(s => `
-      <div class="panel-row">
-        <div class="ic">${I(s.icon)}</div>
-        <div><b>${s.eyebrow}</b><span>${s.nav}</span></div>
-        <span class="tag">live</span>
-      </div>`).join("");
+    const heroJourney = `
+      <div class="journey">
+        <div class="j-step">
+          <span class="j-cap">1 · A customer searches</span>
+          <div class="j-card j-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <span>tiffin service near me</span>
+          </div>
+        </div>
+        <div class="j-line"></div>
+        <div class="j-step">
+          <span class="j-cap">2 · They find your website</span>
+          <div class="j-card j-site">
+            <div class="j-site-bar"><span></span><span></span><span></span><em>yourbusiness.in</em></div>
+            <div class="j-site-body">
+              <b>Fresh homestyle meals, delivered daily</b>
+              <span class="j-btn">Order on WhatsApp</span>
+            </div>
+          </div>
+        </div>
+        <div class="j-line"></div>
+        <div class="j-step">
+          <span class="j-cap">3 · They order, you're notified</span>
+          <div class="j-card j-chat">
+            <div class="j-bubble in">Hi! 1 veg thali for lunch today</div>
+            <div class="j-bubble out">Order confirmed. Delivering by 1 pm.</div>
+          </div>
+        </div>
+        <div class="j-badge">${I('bolt')} Saved to your records, follow-up scheduled</div>
+      </div>`;
 
     document.getElementById('app').innerHTML = `
       ${window.axHeader('')}
@@ -49,10 +73,7 @@
           <div class="hero-note">${I('checkc')} ${C.home.heroNote}</div>
         </div>
         <div class="reveal">
-          <div class="panel">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Your visibility engine</div>
-            ${heroPanel}
-          </div>
+          ${heroJourney}
         </div>
       </div></div></section>
 
@@ -77,11 +98,11 @@
             <li>${I('checkc')}<span>You own everything and can run it yourself.</span></li>
           </ul>
         </div>
-        <div class="reveal"><div class="panel">
-          <div class="panel-row"><div class="ic">${I('shield')}</div><div><b>You own it all</b><span>Code, data, accounts</span></div></div>
-          <div class="panel-row"><div class="ic">${I('clock')}</div><div><b>First draft in 48h</b><span>See it before you commit</span></div></div>
-          <div class="panel-row"><div class="ic">${I('bolt')}</div><div><b>Runs without you</b><span>Automations never sleep</span></div></div>
-          <div class="panel-row"><div class="ic">${I('star')}</div><div><b>One partner</b><span>Websites to WhatsApp</span></div></div>
+        <div class="reveal"><div class="grid grid-2" style="gap:16px">
+          <div class="card" style="padding:20px"><div class="ic" style="margin-bottom:12px">${I('shield')}</div><h3 style="font-size:1.02rem;margin-bottom:4px">You own it all</h3><p style="font-size:.88rem">Code, data, accounts</p></div>
+          <div class="card" style="padding:20px"><div class="ic" style="margin-bottom:12px">${I('clock')}</div><h3 style="font-size:1.02rem;margin-bottom:4px">First draft in 48h</h3><p style="font-size:.88rem">See it before you commit</p></div>
+          <div class="card" style="padding:20px"><div class="ic" style="margin-bottom:12px">${I('bolt')}</div><h3 style="font-size:1.02rem;margin-bottom:4px">Runs without you</h3><p style="font-size:.88rem">Automations never sleep</p></div>
+          <div class="card" style="padding:20px"><div class="ic" style="margin-bottom:12px">${I('star')}</div><h3 style="font-size:1.02rem;margin-bottom:4px">One partner</h3><p style="font-size:.88rem">Websites to WhatsApp</p></div>
         </div></div>
       </div></div></section>
 
