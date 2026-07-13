@@ -1,4 +1,4 @@
-/* Axiotrix — content model (single source of truth)
+/* Axiotrix | content model (single source of truth)
    The website renders from this object. The Control Panel (admin.html)
    edits it and saves overrides to localStorage. Swap this layer for
    Supabase later without touching the pages. */
@@ -10,27 +10,27 @@ const DEFAULT_CONTENT = {
     whatsapp: "919000000000",
     email: "hello@axiotrix.com",
     phone: "+91 90000 00000",
-    footerBlurb: "Axiotrix builds the websites, tools and automations that make small businesses impossible to miss online."
+    footerBlurb: "Axiotrix builds the system that connects you to your customers: visibility, tools, reports, automation and WhatsApp, working as one machine."
   },
 
   home: {
-    heroEyebrow: "Digital visibility studio",
-    heroTitle: "Make your business impossible to miss.",
-    heroText: "We build the website, tools, reports and automations that turn strangers into customers, and keep them coming back, without you chasing anyone.",
-    heroCtaPrimary: "Tell us what you need",
+    heroEyebrow: "Visibility, engineered",
+    heroTitle: "You don't need a website. You need to be impossible to miss.",
+    heroText: "A website is old fashioned. What you actually want is a system that connects you to your customers: finds them, wins them, and follows them up, while you run the business.",
+    heroCtaPrimary: "Build my system",
     heroCtaSecondary: "See how it works",
-    heroNote: "Free 15-minute plan for your business, no obligation.",
-    servicesEyebrow: "What we build",
-    servicesTitle: "Five ways we grow your visibility",
-    servicesText: "Pick one, or let us combine them into a system that runs itself.",
-    whyEyebrow: "Why Axiotrix",
-    whyTitle: "One partner for the whole visibility engine",
-    whyText: "Most agencies hand you a design and disappear. We build things that keep working: sites that convert, tools that save hours, and automation that follows up for you.",
+    heroNote: "Free 15-minute visibility plan. No jargon, no obligation.",
+    servicesEyebrow: "The system",
+    servicesTitle: "Five engines. One machine.",
+    servicesText: "Each one works alone. Together they find customers, answer them, and follow up, without you in the loop.",
+    whyEyebrow: "Why this matters",
+    whyTitle: "Your time is the most expensive thing in your business",
+    whyText: "Every hour spent chasing leads, totalling sheets and forwarding messages is an hour stolen from the work only you can do. Human attention is precious. Spend it where it pays, and let the system take care of the rest.",
     stats: [
       { n: "48h", l: "First working draft" },
-      { n: "5", l: "Services, one team" },
+      { n: "5", l: "Engines, one team" },
       { n: "100%", l: "You own everything" },
-      { n: "24/7", l: "Automations never sleep" }
+      { n: "24/7", l: "The system never sleeps" }
     ]
   },
 
@@ -39,12 +39,12 @@ const DEFAULT_CONTENT = {
       slug: "website-creation",
       nav: "Websites",
       icon: "globe",
-      eyebrow: "Website creation",
-      title: "A website that sells while you sleep",
-      text: "Not a brochure nobody visits, a fast, clean site built around the one action you want visitors to take.",
-      heroNote: "Live in days, not months.",
-      impact: "Turns Google searches and shared links into enquiries you were never getting before.",
-      problem: "You have a business but no home online, or an old site that loads slowly, looks dated on phones, and never brings you a single enquiry.",
+      eyebrow: "Online visibility",
+      title: "A website is old fashioned. You need a customer magnet.",
+      text: "You do not want a website. You want a system that connects you to your customers: found in ten seconds, sharp on every phone, and built around one action, reaching you.",
+      heroNote: "Live in days, pulling enquiries from week one.",
+      impact: "You stop being the best kept secret in your market.",
+      problem: "Your customers search before they buy. If they cannot find you in ten seconds, they buy from the competitor they can. Being good at what you do is no longer enough; being visible is the entry ticket.",
       usecases: [
         { t: "The local shop with no online presence", d: "A cloud kitchen or boutique that lives on word of mouth gets a clean one-page site with menu, photos and a WhatsApp order button, so a Google search turns into an order.",
           i: "Found on Google, first direct orders within weeks, and zero commission paid to aggregator apps." },
@@ -72,11 +72,11 @@ const DEFAULT_CONTENT = {
       nav: "Tools",
       icon: "wrench",
       eyebrow: "Custom tools",
-      title: "Tools that do the boring work for you",
-      text: "The calculator, tracker or mini-app your business needs but no off-the-shelf product sells. Built exactly for how you work.",
-      heroNote: "One tool can save hours every week.",
-      impact: "Replaces spreadsheets and manual back-and-forth, giving you back hours every single week.",
-      problem: "You are stuck in spreadsheets, copy-pasting between apps, or paying for bloated software you use ten percent of. The exact tool you need does not exist yet.",
+      title: "Human attention is precious. Spend it only where it pays.",
+      text: "Let tools take care of the repeating work: quotes, tracking, records, reminders. You step in only where a human actually changes the outcome.",
+      heroNote: "One tool can buy back a working day every week.",
+      impact: "The laptop-and-spreadsheet routine stops eating the hours your business needs from you most.",
+      problem: "The old way runs on one laptop and one owner: everything manual, everything waiting for you. That routine quietly consumes your thinking hours, the ones a business owner needs most, on work a tool should be doing.",
       usecases: [
         { t: "The quote or estimate calculator", d: "A curtains or interiors business lets customers pick options and get an instant price, then sends the estimate as a branded PDF, no back-and-forth.",
           i: "Quotes go out in two minutes instead of two days, so customers decide while their interest is still hot." },
@@ -104,11 +104,11 @@ const DEFAULT_CONTENT = {
       nav: "Reports",
       icon: "chart",
       eyebrow: "Reports and dashboards",
-      title: "Know what's working, in one glance",
-      text: "Stop guessing. A single live dashboard that pulls your numbers together and tells you what to do next.",
-      heroNote: "Numbers, refreshed automatically.",
-      impact: "You decide from live numbers instead of month-old guesswork, and catch problems the day they start.",
-      problem: "Your data is scattered across WhatsApp, sheets, ads and payment apps. By the time you total it up, the month is over and the moment to act has passed.",
+      title: "Stop running your business on feelings.",
+      text: "Guesswork is the most expensive habit in business. One live dashboard tells you what is working, what is leaking, and what to do next.",
+      heroNote: "Your numbers, live, in one glance.",
+      impact: "Decisions take minutes instead of month-ends, and problems get caught the day they start.",
+      problem: "Your numbers live in five different apps and one tired memory. By the time you total them up, the month is over and the moment to act has passed. That is not reporting, that is archaeology.",
       usecases: [
         { t: "The daily sales snapshot", d: "A kitchen owner opens one link each morning and sees yesterday's orders, top items and repeat customers, no spreadsheet needed.",
           i: "A bad day is spotted the same day, not at month end when the damage is already four weeks deep." },
@@ -136,11 +136,11 @@ const DEFAULT_CONTENT = {
       nav: "Automation",
       icon: "bolt",
       eyebrow: "Automation",
-      title: "Set it once, let it run",
-      text: "The follow-ups, reminders and hand-offs you keep forgetting, handled automatically, every time, without you.",
-      heroNote: "Works while you sleep.",
-      impact: "Follow-ups happen every single time, so leads and renewals stop dying silently in your inbox.",
-      problem: "Leads go cold because nobody followed up. Renewals lapse because nobody reminded the customer. You are the bottleneck, and there are only so many hours in a day.",
+      title: "Your memory is not a system. Automation is.",
+      text: "Follow-ups, reminders and hand-offs should not depend on how busy your day was. Set them once, and they happen every time, without you.",
+      heroNote: "Runs 24/7. Never forgets. Never gets tired.",
+      impact: "Leads and renewals stop dying silently just because a human was busy.",
+      problem: "Right now, you are the engine of your own business: every follow-up, every reminder, every hand-off waits for you. Engines burn out. Systems do not.",
       usecases: [
         { t: "The follow-up that never gets forgotten", d: "A new enquiry automatically gets a thank-you, a reminder after two days, and a nudge after a week, until they reply.",
           i: "Most sales come from the second or third touch nobody was making; those touches now happen automatically." },
@@ -168,11 +168,11 @@ const DEFAULT_CONTENT = {
       nav: "WhatsApp",
       icon: "chat",
       eyebrow: "WhatsApp integration",
-      title: "Meet customers where they already are",
-      text: "India runs on WhatsApp. We turn it into your order desk, support line and follow-up engine, connected to everything else you use.",
-      heroNote: "Where 90% of your customers already are.",
+      title: "Your real shopfront is inside WhatsApp.",
+      text: "India does not browse, it chats. We turn WhatsApp into your order desk, support line and follow-up engine, connected to everything else you run.",
+      heroNote: "Where your customers already spend hours every day.",
       impact: "Buying drops to one tap in the app your customers already open fifty times a day.",
-      problem: "Customers message you on WhatsApp but it is chaos: orders lost in chat, the same questions all day, and no record of who needs a follow-up.",
+      problem: "Customers already message you on WhatsApp, but chaos is not a channel: orders buried in chats, the same questions all day, and no trace of who needs a follow-up.",
       usecases: [
         { t: "The one-tap order button", d: "Every page and ad has a button that opens WhatsApp with the order details pre-filled, so buying takes one tap.",
           i: "More started orders get finished because there is no form, no app install, no login, just one tap." },
@@ -199,16 +199,16 @@ const DEFAULT_CONTENT = {
 
   packages: {
     eyebrow: "Packages",
-    title: "Simple pricing. Pick the visibility you need.",
-    text: "Start with one service or take the whole engine. Every package is a fixed scope with a clear price, no surprise invoices.",
+    title: "Buy back your time. Pick your starting point.",
+    text: "Start with one engine or take the whole system. Every package is a fixed scope with a clear price, no surprise invoices.",
     note: "Prices are starting points. Send your requirement and we'll confirm an exact quote in one working day.",
     tiers: [
-      { name: "Launch", price: "₹15,000", tagline: "Get online, fast", featured: false,
+      { name: "Launch", price: "₹15,000", tagline: "Get found, fast", featured: false,
         cta: "Start with Launch",
-        features: ["One-page website, mobile-first","WhatsApp order or enquiry button","Google-ready basics","Live in under a week","You own everything"] },
-      { name: "Growth", price: "₹45,000", tagline: "The visibility engine", featured: true,
+        features: ["One-page customer magnet, mobile-first","WhatsApp order or enquiry button","Google-ready basics","Live in under a week","You own everything"] },
+      { name: "Growth", price: "₹45,000", tagline: "The full system", featured: true,
         cta: "Choose Growth",
-        features: ["Multi-page website","One custom tool or calculator","WhatsApp auto-replies + logging","Basic automation (follow-ups)","Live reports dashboard"] },
+        features: ["Multi-page visibility site","One custom tool or calculator","WhatsApp auto-replies + logging","Follow-up automation","Live reports dashboard"] },
       { name: "Agency", price: "Custom", tagline: "We run it with you", featured: false,
         cta: "Talk to us",
         features: ["Everything in Growth","Full WhatsApp Business API setup","Advanced automations","Monthly reports + optimisation","Priority support on WhatsApp"] }
@@ -217,12 +217,12 @@ const DEFAULT_CONTENT = {
 
   about: {
     eyebrow: "About Axiotrix",
-    title: "One team for your whole visibility engine",
-    text: "Most agencies hand you a pretty design and vanish. We build things that keep working, and we stay to make sure they do.",
+    title: "We don't sell websites. We build the system that connects you to your customers.",
+    text: "Most agencies hand you a pretty design and vanish. We build machinery that keeps working: visibility that pulls enquiries, tools that buy back your hours, automation that follows up while you sleep. And we stay to make sure it does.",
     values: [
       { t: "Use case before design", d: "We start from the one action you need a customer to take, then build backwards. Pretty is a side effect, not the goal." },
-      { t: "You own everything", d: "Code, data, accounts, all yours. No lock-in, no ransom. You can run it yourself or grow it with us." },
-      { t: "Built to keep working", d: "Sites that convert, tools that save hours, automations that follow up while you sleep. Not a one-time drop and disappear." }
+      { t: "Your attention is the budget", d: "Human intervention is precious. We design so you spend it only where it pays, and the system takes care of the rest." },
+      { t: "You own everything", d: "Code, data, accounts, all yours. No lock-in, no ransom. You can run it yourself or grow it with us." }
     ]
   },
 
@@ -242,11 +242,11 @@ const DEFAULT_CONTENT = {
 
   submit: {
     eyebrow: "Submit your requirement",
-    title: "Tell us what you need. We'll send a plan.",
-    text: "Answer a few quick questions. Within one working day you get a clear plan, a timeline, and a price, no jargon, no pressure.",
-    successTitle: "Got it. Talk soon.",
-    successText: "Your requirement is in. We'll reach out on WhatsApp or email within one working day with your plan.",
-    services: ["Website", "Custom tool", "Reports / dashboard", "Automation", "WhatsApp setup", "Not sure yet"],
+    title: "Tell us what is eating your time. We'll send the fix.",
+    text: "Describe the problem in plain words. Within one working day you get a plan, a timeline and a price. No jargon, no pressure.",
+    successTitle: "Got it. Your plan is on the way.",
+    successText: "Your requirement is in. We'll reach out on WhatsApp or email within one working day with a plan to get those hours back.",
+    services: ["Visibility / website", "Custom tool", "Reports / dashboard", "Automation", "WhatsApp setup", "Not sure yet"],
     budgets: ["Under ₹25k", "₹25k – ₹75k", "₹75k – ₹2L", "Above ₹2L", "Let's discuss"]
   }
 };

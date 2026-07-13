@@ -1,4 +1,4 @@
-/* Axiotrix — site rendering engine (shared by all pages) */
+/* Axiotrix | site rendering engine (shared by all pages) */
 (function () {
   const C = window.AX.loadContent();
 
@@ -90,7 +90,7 @@
   window.axRenderService = function (slug) {
     const s = C.services.find(x => x.slug === slug) || C.services[0];
     const wa = `https://wa.me/${C.global.whatsapp}?text=${encodeURIComponent("Hi Axiotrix, I'm interested in " + s.eyebrow)}`;
-    document.title = `${s.eyebrow} — ${C.global.brand}`;
+    document.title = `${s.eyebrow} | ${C.global.brand}`;
 
     const usecases = s.usecases.map((u,i) => `
       <div class="usecase reveal">
@@ -153,7 +153,7 @@
   /* --- Packages page renderer --- */
   window.axRenderPackages = function () {
     const P = C.packages;
-    document.title = `Packages — ${C.global.brand}`;
+    document.title = `Packages | ${C.global.brand}`;
     const tiers = P.tiers.map(t => {
       const feat = (t.featured === true || t.featured === 'true');
       const feats = t.features.map(f => `<li>${icon('check')}<span>${f}</span></li>`).join("");
@@ -183,7 +183,7 @@
   /* --- About page renderer --- */
   window.axRenderAbout = function () {
     const A = C.about;
-    document.title = `About — ${C.global.brand}`;
+    document.title = `About | ${C.global.brand}`;
     const values = A.values.map(v => `
       <div class="card reveal"><div class="ic">${icon('shield')}</div>
         <h3>${v.t}</h3><p>${v.d}</p></div>`).join("");

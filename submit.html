@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Submit your requirement — Axiotrix</title>
+  <title>Submit your requirement | Axiotrix</title>
   <meta name="description" content="Tell Axiotrix what you need and get a clear plan, timeline and price within one working day.">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -97,7 +97,7 @@
         services, budget: f.budget.value, timeline: f.timeline.value,
         msg: f.msg.value.trim(), status: 'new'
       };
-      window.AX.addLead(lead);   // sample store — swap for Supabase insert later
+      window.AX.addLead(lead);   // sample store | swap for Supabase insert later
 
       // build WhatsApp handoff message to Axiotrix
       const text = `New requirement from ${lead.name}${lead.business?' ('+lead.business+')':''}%0A`
