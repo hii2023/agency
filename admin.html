@@ -70,7 +70,6 @@
       { grp:'Service pages' },
       ...C.services.map(s => ({ id:'svc:'+s.slug, label:s.eyebrow })),
       { grp:'Agency' },
-      { id:'packages', label:'Packages & pricing' },
       { id:'about', label:'About & values' },
       { id:'testimonials', label:'Testimonials' },
       { id:'faq', label:'FAQ' },
@@ -111,7 +110,6 @@
       const v = document.getElementById('view');
       if (cur==='global') v.innerHTML = renderGlobal();
       else if (cur==='home') v.innerHTML = renderHome();
-      else if (cur==='packages') v.innerHTML = renderPackages();
       else if (cur==='about') v.innerHTML = renderAbout();
       else if (cur==='testimonials') v.innerHTML = renderTestimonials();
       else if (cur==='faq') v.innerHTML = renderFaq();
@@ -178,21 +176,6 @@
         + saveBar();
     }
 
-    function renderPackages(){
-      let tiers = C.packages.tiers.map((t,i)=>{
-        let feats = t.features.map((f,j)=>field('Feature '+(j+1),'packages.tiers.'+i+'.features.'+j)).join("");
-        return `<div class="card2"><h3>Tier ${i+1}: ${t.name}</h3>
-          <div class="subgrid">${field('Name','packages.tiers.'+i+'.name')}${field('Price','packages.tiers.'+i+'.price')}</div>
-          ${field('Tagline','packages.tiers.'+i+'.tagline')}
-          ${field('Button text','packages.tiers.'+i+'.cta')}
-          <div class="fg"><label>Highlighted? (type true or false)</label><input data-path="packages.tiers.${i}.featured" value="${t.featured}"></div>
-          <div style="margin-top:8px"><b style="font-size:.82rem;color:var(--ink)">Features</b>${feats}</div></div>`;
-      }).join("");
-      return head('Packages & pricing','Your three pricing tiers, the intro and the small print. Set exactly one tier as highlighted.')
-        + `<div class="card2"><h3>Intro</h3>
-            ${field('Eyebrow','packages.eyebrow')}${field('Title','packages.title')}${field('Text','packages.text',true)}${field('Small print note','packages.note',true)}</div>`
-        + tiers + saveBar();
-    }
     function renderAbout(){
       let vals = C.about.values.map((v,i)=>`<div class="arrayitem"><div class="lbl">Value ${i+1}</div>
         ${field('Title','about.values.'+i+'.t')}${field('Description','about.values.'+i+'.d',true)}</div>`).join("");

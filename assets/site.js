@@ -42,17 +42,18 @@
         <span class="sep">|</span>
         <a href="mailto:${C.global.email}">${icon('mail')}${C.global.email}</a>
       </div>
-      <a href="submit.html">Get a free plan</a>
+      <a href="submit.html">Request For Demo</a>
     </div></div>
     <header class="nav"><div class="wrap">
       <a class="brand" href="index.html">${mark}${C.global.brand}</a>
       <nav class="nav-links">
-        <a href="index.html"${cls('home')}>Home</a>
+        <a href="https://www.axiotrix.com/">Home</a>
+        <a href="https://www.axiotrix.com/">Healthcare</a>
+        <a href="https://www.axiotrix.com/">Financial</a>
         <div class="has-drop">
-          <a href="index.html#services"${cls('services')}>Services ${caret}</a>
+          <a href="index.html"${cls('services')}>Digital Solutions ${caret}</a>
           <div class="drop">${drop}</div>
         </div>
-        <a href="packages.html"${cls('packages')}>Packages</a>
         <a href="about.html"${cls('about')}>About Us</a>
         <a href="submit.html"${cls('submit')}>Contact Us</a>
       </nav>
@@ -75,7 +76,7 @@
         </div>
         <div><h5>Services</h5>${svc}</div>
         <div><h5>Company</h5>
-          <a href="packages.html">Packages</a><a href="about.html">About</a><a href="submit.html">Submit requirement</a>
+          <a href="about.html">About</a><a href="submit.html">Contact us</a>
         </div>
         <div><h5>Talk to us</h5>
           <a href="mailto:${C.global.email}">${C.global.email}</a>
@@ -85,7 +86,7 @@
       </div>
       <div class="footer-bottom">
         <span>© ${new Date().getFullYear()} ${C.global.brand}. ${C.global.tagline}</span>
-        <span>Built for businesses that want to be seen.</span>
+        <span>Solutions Simplified.</span>
       </div>
     </div></footer>
     <a class="wa-float" href="${wa}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">${icon('wa')}</a>`;
@@ -96,15 +97,15 @@
   window.axCta = function () {
     return `<section class="section"><div class="wrap"><div class="cta-band reveal">
       <h2>Not sure where to start?</h2>
-      <p>Tell us the problem in plain words. We'll come back with a plan, a timeline and a price within one working day.</p>
-      <a class="btn btn-primary" href="submit.html">Submit your requirement ${icon('arrow')}</a>
+      <p>Tell us the problem in plain words. We come back with a plan, a timeline and a price within one working day.</p>
+      <a class="btn btn-primary" href="submit.html">Request a consultation ${icon('arrow')}</a>
     </div></div></section>`;
   };
 
   /* --- Service page renderer --- */
   window.axRenderService = function (slug) {
     const s = C.services.find(x => x.slug === slug) || C.services[0];
-    const wa = `https://wa.me/${C.global.whatsapp}?text=${encodeURIComponent("Hi Axiotrix, I'm interested in " + s.eyebrow)}`;
+    const wa = `https://wa.me/${C.global.whatsapp}?text=${encodeURIComponent("Hello Axiotrix, I am interested in " + s.eyebrow)}`;
     document.title = `${s.eyebrow} | ${C.global.brand}`;
 
     const usecases = s.usecases.map((u,i) => `
@@ -161,36 +162,6 @@
       </div>
     </div></div></section>
 
-    ${window.axCta()}
-    ${footer()}`;
-  };
-
-  /* --- Packages page renderer --- */
-  window.axRenderPackages = function () {
-    const P = C.packages;
-    document.title = `Packages | ${C.global.brand}`;
-    const tiers = P.tiers.map(t => {
-      const feat = (t.featured === true || t.featured === 'true');
-      const feats = t.features.map(f => `<li>${icon('check')}<span>${f}</span></li>`).join("");
-      return `<div class="tier ${feat?'tier-featured':''} reveal">
-        ${feat?'<span class="tier-badge">Most popular</span>':''}
-        <h3>${t.name}</h3>
-        <p class="tier-tag">${t.tagline}</p>
-        <div class="tier-price">${t.price}</div>
-        <ul class="checks tier-feats">${feats}</ul>
-        <a class="btn ${feat?'btn-primary':'btn-ghost'}" href="submit.html" style="justify-content:center;width:100%">${t.cta}</a>
-      </div>`;
-    }).join("");
-    return `${header('packages')}
-    <section class="hero"><div class="wrap center" style="max-width:720px;margin:0 auto">
-      <span class="eyebrow">${P.eyebrow}</span>
-      <h1 style="margin-bottom:16px">${P.title}</h1>
-      <p class="lead">${P.text}</p>
-    </div></section>
-    <section class="section"><div class="wrap">
-      <div class="grid grid-3 tiers">${tiers}</div>
-      <p class="center" style="margin-top:30px;color:var(--muted);font-size:.92rem;max-width:56ch;margin-left:auto;margin-right:auto">${P.note}</p>
-    </div></section>
     ${window.axCta()}
     ${footer()}`;
   };
