@@ -24,38 +24,35 @@
         <span class="more">See the use cases ${I('arrow')}</span>
       </a>`).join("");
 
-    const stats = C.home.stats.map(s => `
-      <div class="stat reveal"><b>${s.n}</b><span>${s.l}</span></div>`).join("");
-
     const heroJourney = `
       <div class="journey">
         <div class="j-step">
-          <span class="j-cap">1 · A customer searches</span>
+          <span class="j-cap">1 · They search</span>
           <div class="j-card j-search">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-            <span>customised curtains near me</span>
+            <span>salon near me</span>
           </div>
         </div>
         <div class="j-line"></div>
         <div class="j-step">
-          <span class="j-cap">2 · They find you, not a competitor</span>
+          <span class="j-cap">2 · They find you</span>
           <div class="j-card j-site">
-            <div class="j-site-bar"><span></span><span></span><span></span><em>yourbusiness.in</em></div>
+            <div class="j-site-bar"><span></span><span></span><span></span><em>yoursalon.in</em></div>
             <div class="j-site-body">
-              <b>Made-to-measure curtains, fitted in 7 days</b>
-              <span class="j-btn">Book a free site visit</span>
+              <b>Your Salon</b>
+              <span class="j-btn">Book on WhatsApp</span>
             </div>
           </div>
         </div>
         <div class="j-line"></div>
         <div class="j-step">
-          <span class="j-cap">3 · They book, hands-free for you</span>
+          <span class="j-cap">3 · They book</span>
           <div class="j-card j-chat">
-            <div class="j-bubble in">Need blinds for 4 windows. Can you visit this week?</div>
-            <div class="j-bubble out">Visit booked for tomorrow, 11 am. See you!</div>
+            <div class="j-bubble in">Haircut tomorrow at 5?</div>
+            <div class="j-bubble out">Booked! See you at 5.</div>
           </div>
         </div>
-        <div class="j-badge">${I('bolt')} Lead saved, follow-up scheduled, nothing on your plate</div>
+        <div class="j-badge">${I('bolt')} Booking saved. Reminder goes out automatically.</div>
       </div>`;
 
     document.getElementById('app').innerHTML = `
@@ -76,10 +73,6 @@
           ${heroJourney}
         </div>
       </div></div></section>
-
-      <section class="section-sm soft"><div class="wrap">
-        <div class="stats">${stats}</div>
-      </div></section>
 
       <section class="section" id="services"><div class="wrap">
         <div class="sh center"><span class="eyebrow">${C.home.servicesEyebrow}</span>

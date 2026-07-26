@@ -25,13 +25,7 @@ const DEFAULT_CONTENT = {
     servicesText: "Start with the one you need most. Each one fixes a real, daily problem.",
     whyEyebrow: "Why it matters",
     whyTitle: "You should be running your business, not doing paperwork",
-    whyText: "Most owners lose hours every day answering the same questions, chasing payments and updating registers. We set up simple systems that do this work for you, so your time goes where it earns.",
-    stats: [
-      { n: "48h", l: "First working demo" },
-      { n: "5", l: "Services, one team" },
-      { n: "100%", l: "You own everything" },
-      { n: "24/7", l: "Works even when you're closed" }
-    ]
+    whyText: "Most owners lose hours every day answering the same questions, chasing payments and updating registers. We set up simple systems that do this work for you, so your time goes where it earns."
   },
 
   services: [

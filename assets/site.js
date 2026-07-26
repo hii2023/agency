@@ -27,22 +27,37 @@
   }
   window.axIcon = icon;
 
-  const mark = `<svg class="mark" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4f46e5"/><path d="M9 22l7-13 7 13M11.5 17h9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const mark = `<svg class="mark" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#0795fe"/><path d="M9 22l7-13 7 13M11.5 17h9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const caret = `<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`;
 
-  /* --- Header --- */
+  /* --- Header (topbar + nav, matching axiotrix.com) --- */
   function header(active) {
     const isSvc = C.services.some(s => s.slug === active);
-    const hi = (k) => (active === k || (k === 'services' && isSvc)) ? ' style="color:var(--indigo)"' : '';
-    return `<header class="nav"><div class="wrap">
+    const cls = (k) => (active === k || (k === 'services' && isSvc)) ? ' class="active"' : '';
+    const drop = C.services.map(s =>
+      `<a href="service.html?s=${s.slug}"><span class="ar">&#10230;</span>${s.eyebrow}</a>`).join("");
+    return `<div class="topbar"><div class="wrap">
+      <div class="topbar-left">
+        <a href="tel:${C.global.phone}">${icon('phone')}${C.global.phone}</a>
+        <span class="sep">|</span>
+        <a href="mailto:${C.global.email}">${icon('mail')}${C.global.email}</a>
+      </div>
+      <a href="submit.html">Get a free plan</a>
+    </div></div>
+    <header class="nav"><div class="wrap">
       <a class="brand" href="index.html">${mark}${C.global.brand}</a>
       <nav class="nav-links">
-        <a href="index.html#services"${hi('services')}>Services</a>
-        <a href="packages.html"${hi('packages')}>Packages</a>
-        <a href="about.html"${hi('about')}>About</a>
-        <a href="submit.html"${hi('submit')}>Get a plan</a>
+        <a href="index.html"${cls('home')}>Home</a>
+        <div class="has-drop">
+          <a href="index.html#services"${cls('services')}>Services ${caret}</a>
+          <div class="drop">${drop}</div>
+        </div>
+        <a href="packages.html"${cls('packages')}>Packages</a>
+        <a href="about.html"${cls('about')}>About Us</a>
+        <a href="submit.html"${cls('submit')}>Contact Us</a>
       </nav>
       <div class="nav-cta">
-        <a class="btn btn-indigo" href="submit.html">Submit requirement</a>
+        <a class="btn btn-primary" href="submit.html">Request a Plan</a>
         <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">${icon('menu')}</button>
       </div>
     </div></header>`;

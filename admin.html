@@ -151,9 +151,7 @@
           ${field('Eyebrow','home.whyEyebrow')}
           ${field('Title','home.whyTitle')}
           ${field('Text','home.whyText',true)}</div>`;
-      let stats = C.home.stats.map((s,i)=>`<div class="arrayitem"><div class="lbl">Stat ${i+1}</div>
-        <div class="subgrid">${field('Number','home.stats.'+i+'.n')}${field('Label','home.stats.'+i+'.l')}</div></div>`).join("");
-      out += `<div class="card2"><h3>Stat strip</h3>${stats}</div>` + saveBar();
+      out += saveBar();
       return out;
     }
 
