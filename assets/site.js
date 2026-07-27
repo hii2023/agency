@@ -225,4 +225,98 @@
     t.textContent = msg; t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2600);
   };
+
+  /* --- Hero carousel: five customer journeys ---
+     Edit JOURNEYS to change the examples shown in the hero. */
+  const JOURNEYS = [
+    { search: "wedding photographer near me", domain: "yourstudio.com",
+      name: "Lakeside Photography", btn: "Check my date", cap3: "They enquire",
+      ask: "Is 14th June free for a wedding?",
+      reply: "It is. Sending you the packages now.",
+      badge: "Enquiry logged. Follow-up scheduled." },
+    { search: "office cleaning services", domain: "yourcompany.com",
+      name: "BrightSpace Cleaning", btn: "Get a free quote", cap3: "They ask for a price",
+      ask: "2 floors, 15 desks. What would that cost?",
+      reply: "Quote sent to your email just now.",
+      badge: "Quote generated. No manual work." },
+    { search: "custom furniture maker", domain: "yourworkshop.com",
+      name: "Oakline Furniture", btn: "Start my order", cap3: "They order",
+      ask: "Want the dining table in walnut, seats 6.",
+      reply: "Noted. Deposit link is on its way.",
+      badge: "Order saved. Team notified instantly." },
+    { search: "driving school in my area", domain: "yourschool.com",
+      name: "Greenway Driving School", btn: "Book a lesson", cap3: "They book",
+      ask: "Do you have Saturday morning slots?",
+      reply: "Yes, booked you for Saturday 9am.",
+      badge: "Booking logged. Reminder sends automatically." },
+    { search: "same day courier service", domain: "yourbusiness.com",
+      name: "Swift Route Couriers", btn: "Request a pickup", cap3: "They request a pickup",
+      ask: "Need a parcel collected before 5pm today.",
+      reply: "Pickup confirmed for 3:30pm today.",
+      badge: "Job created. Driver assigned." }
+  ];
+
+  const journeyStage = (j) => `
+    <div class="j-step">
+      <span class="j-cap">1 &middot; They search</span>
+      <div class="j-card j-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span>${j.search}</span>
+      </div>
+    </div>
+    <div class="j-line"></div>
+    <div class="j-step">
+      <span class="j-cap">2 &middot; They find you</span>
+      <div class="j-card j-site">
+        <div class="j-site-bar"><span></span><span></span><span></span><em>${j.domain}</em></div>
+        <div class="j-site-body"><b>${j.name}</b><span class="j-btn">${j.btn}</span></div>
+      </div>
+    </div>
+    <div class="j-line"></div>
+    <div class="j-step">
+      <span class="j-cap">3 &middot; ${j.cap3}</span>
+      <div class="j-card j-chat">
+        <div class="j-bubble in">${j.ask}</div>
+        <div class="j-bubble out">${j.reply}</div>
+      </div>
+    </div>
+    <div class="j-badge">${icon('bolt')} ${j.badge}</div>`;
+
+  window.axJourneyHtml = function () {
+    return `<div class="journey">
+      <div class="journey-stage" id="jstage">${journeyStage(JOURNEYS[0])}</div>
+      <div class="j-dots">${JOURNEYS.map((_, i) =>
+        `<button class="j-dot${i === 0 ? ' on' : ''}" data-i="${i}" aria-label="Example ${i + 1}"></button>`).join("")}</div>
+    </div>`;
+  };
+
+  /* Rotates every 4.5s, pauses on hover, stops on click,
+     respects prefers-reduced-motion. Safe to call on every render. */
+  window.axStartCarousel = function () {
+    const stage = document.getElementById('jstage');
+    if (!stage) return;
+    const dots = [...document.querySelectorAll('.j-dot')];
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let i = 0, timer = null;
+
+    if (window._axTimer) clearInterval(window._axTimer);
+
+    function show(n) {
+      i = (n + JOURNEYS.length) % JOURNEYS.length;
+      stage.classList.add('fading');
+      setTimeout(() => {
+        stage.innerHTML = journeyStage(JOURNEYS[i]);
+        stage.classList.remove('fading');
+        dots.forEach((d, k) => d.classList.toggle('on', k === i));
+      }, reduced ? 0 : 220);
+    }
+    function start() { if (!reduced && !timer) { timer = setInterval(() => show(i + 1), 4500); window._axTimer = timer; } }
+    function stop() { clearInterval(timer); timer = null; }
+
+    dots.forEach(d => d.addEventListener('click', () => { stop(); show(+d.dataset.i); }));
+    const j = document.querySelector('.journey');
+    if (j) { j.addEventListener('mouseenter', stop); j.addEventListener('mouseleave', start); }
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    start();
+  };
 })();
