@@ -295,7 +295,7 @@ ${siteJs}
       body = contactHtml();
       document.title = 'Contact | Axiotrix Global';
     } else {
-      body = homeHtml() + stripChrome(window.axCta());
+      body = homeHtml();   /* homeHtml already ends with the CTA band */
       document.title = 'Digital Solutions | Axiotrix Global';
     }
     app.innerHTML = localise(body);
