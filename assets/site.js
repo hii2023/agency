@@ -27,7 +27,11 @@
   }
   window.axIcon = icon;
 
-  const mark = `<svg class="mark" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#0795fe"/><path d="M9 22l7-13 7 13M11.5 17h9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  /* Real Axiotrix Global logo, served from the live site so it always
+     matches. LOGO_SRC can be a root-relative path once this page is
+     hosted on axiotrix.com. */
+  const LOGO_SRC = "https://www.axiotrix.com/images/logo.png";
+  const mark = `<img class="mark" src="${LOGO_SRC}" alt="Axiotrix Global, Solutions Simplified">`;
   const caret = `<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`;
 
   /* --- Header (topbar + nav, matching axiotrix.com) --- */
@@ -45,7 +49,7 @@
       <a href="submit.html">Request For Demo</a>
     </div></div>
     <header class="nav"><div class="wrap">
-      <a class="brand" href="index.html">${mark}${C.global.brand}</a>
+      <a class="brand" href="index.html">${mark}</a>
       <nav class="nav-links">
         <a href="https://www.axiotrix.com/">Home</a>
         <a href="https://www.axiotrix.com/">Healthcare</a>
@@ -71,7 +75,7 @@
     return `<footer class="footer"><div class="wrap">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="index.html" style="margin-bottom:14px">${mark}${C.global.brand}</a>
+          <a class="brand brand-invert" href="index.html" style="margin-bottom:14px">${mark}</a>
           <p style="max-width:34ch">${C.global.footerBlurb}</p>
         </div>
         <div><h5>Services</h5>${svc}</div>

@@ -100,7 +100,10 @@ p { margin: 0; }
 }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 74px; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: 'Mulish', sans-serif; font-weight: 900; color: var(--ink); font-size: 1.32rem; letter-spacing: -.02em; }
-.brand .mark { width: 34px; height: 34px; }
+/* Logo image: matches the sizing used on axiotrix.com (200px wide, max 40px tall) */
+.brand .mark { width: auto; height: auto; max-width: 200px; max-height: 40px; }
+/* The logo is dark navy, so invert it on the dark footer */
+.brand-invert .mark { filter: brightness(0) invert(1); opacity: .95; }
 .nav-links { display: flex; align-items: center; gap: 26px; }
 .nav-links a {
   color: var(--ink); font-size: .95rem; font-weight: 500; transition: color .2s;

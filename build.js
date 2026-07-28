@@ -48,6 +48,7 @@ const page = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Digital Solutions | Axiotrix</title>
 <meta name="description" content="Axiotrix Digital Solutions: websites, webstores, custom tools, AI, reports, automation and messaging that help businesses get found and capture more enquiries.">
+<link rel="icon" href="https://www.axiotrix.com/images/favicon/favicon-32x32.png" sizes="32x32">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${fontUrl}">
