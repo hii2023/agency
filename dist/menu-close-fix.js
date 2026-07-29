@@ -1,45 +1,54 @@
 /* ===================================================================
-   Axiotrix | close the mobile menu when a menu link is clicked
+   Axiotrix | close the mobile menu after tapping a sub-page link
 
-   Problem: menuzord keeps the burger menu and its open submenu on screen
-   after a link is tapped. When the link is an anchor on the page you are
-   already on (for example digital-solutions#reports), nothing reloads, so
-   the menu stays open covering the content and the visitor has to close
-   it by hand.
+   Problem: tapping a dropdown item such as "Know your numbers" only
+   changes the URL hash, so nothing reloads and menuzord leaves the
+   burger menu open, covering the content the visitor just asked for.
 
-   Fix: close the menu and any open submenu as soon as a menu link is
-   clicked. This runs in the capture phase, before the browser follows the
-   link, so by the time the browser jumps to the anchor the menu is
-   already closed and the layout is final. The browser's own anchor
-   handling does the scrolling.
+   Why the earlier click-based version did nothing:
+   1. menuzord CLONES the nav, so there are three .menuzord-menu
+      elements on the page (#top-primary-nav plus two in
+      #top-primary-nav-clone). document.querySelector returned a hidden
+      copy, whose computed display is "none", so the guard exited every
+      single time.
+   2. The expand arrow (span.indicator) sits INSIDE the parent <a>, so a
+      click-based handler also fired when opening a submenu, closing the
+      whole menu instead of expanding it.
 
-   Desktop is untouched: the handler exits when the menu is not in its
-   mobile (displayed) state.
+   This version listens for hashchange instead, which fires only in the
+   broken case: a same-page anchor link. It never fires when the arrow is
+   tapped, and full page links reload anyway. All menu copies are closed,
+   so it does not matter which one is on screen.
 
-   Add before </body> in template.php.
+   Desktop is untouched: nothing happens above 991px, and if the window
+   is widened the inline hiding is removed so menuzord takes over again.
+
+   Paste at the very end of js/custom.js
    =================================================================== */
 (function () {
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest ? e.target.closest('.menuzord-menu a[href]') : null;
-    if (!a) return;
-
-    var href = a.getAttribute('href') || '';
-    if (!href || href === '#' || href.indexOf('javascript:') === 0) return;
-
-    var menu = document.querySelector('.menuzord-menu');
-    if (!menu) return;
-
-    /* On desktop the menu is laid out horizontally and always visible,
-       so there is nothing to close. Only act when the burger menu is
-       showing. */
-    if (window.getComputedStyle(menu).display === 'none') return;
-    if (window.innerWidth > 991) return;
-
-    menu.style.display = 'none';
-
-    var dropdowns = document.querySelectorAll('.menuzord-menu .dropdown');
-    for (var i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].style.display = '';
+  function closeAllMenus() {
+    var menus = document.querySelectorAll('.menuzord-menu');
+    for (var i = 0; i < menus.length; i++) {
+      menus[i].style.display = 'none';
+      var dropdowns = menus[i].querySelectorAll('.dropdown');
+      for (var j = 0; j < dropdowns.length; j++) {
+        dropdowns[j].style.display = '';
+      }
     }
-  }, true);
+  }
+
+  window.addEventListener('hashchange', function () {
+    if (window.innerWidth > 991) return;
+    closeAllMenus();
+  });
+
+  /* hand control back to menuzord if the window grows to desktop */
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 991) {
+      var menus = document.querySelectorAll('.menuzord-menu');
+      for (var i = 0; i < menus.length; i++) {
+        if (menus[i].style.display === 'none') menus[i].style.display = '';
+      }
+    }
+  });
 })();
