@@ -1,105 +1,144 @@
 /* ===================================================================
-   Axiotrix | top bar single-line fix
-   Add to the END of css/custom.css
+   Axiotrix | top bar single-line fix (tablet and mobile)
 
    Problem: .header-top uses col-xl-auto, so its two columns only sit
-   side by side above 1200px. Below that they stack, which turns the
-   blue bar into three rows and eats most of a phone screen.
+   side by side above 1200px. Below that they stack, turning the blue
+   bar into three rows. The theme also adds 15px/30px padding there,
+   which kept the bar tall even once the row was on one line.
 
-   Fix: force a single nowrap row from 1199px down, then progressively
-   drop the least important items so it always fits.
+   Fix: force a single nowrap row from 1199px down, trim the padding,
+   and shrink the pieces so everything fits.
+
+   Two specificity notes, both found by testing against the live site:
+   - the email must be hidden with .contact-info li.contact-email,
+     because the plain .contact-email selector loses to the display
+     rule set on .header-top .contact-info li above it
+   - the button and social icons need the header#header prefix, because
+     the theme styles them with ID-level selectors that outrank a plain
+     class chain
+
+   Desktop (1200px and up) is deliberately untouched.
    =================================================================== */
 
 @media (max-width: 1199px) {
-  /* the theme adds 15px top and 30px bottom padding here, which is what
-     actually made the bar tall even once the row was on one line */
   .header-top {
     padding-top: 6px !important;
     padding-bottom: 6px !important;
   }
   .header-top .row {
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
     align-items: center;
     min-height: 0;
   }
   .header-top .header-top-left,
   .header-top .header-top-right {
-    width: auto;
-    max-width: none;
-    flex: 0 0 auto;
+    width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
     text-align: left !important;
   }
   .header-top .header-top-right {
     margin-left: auto;
-    display: flex;
+    display: flex !important;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .header-top .contact-info {
-    display: flex;
+    display: flex !important;
     align-items: center;
-    gap: 18px;
-    margin: 0;
-    padding: 0;
+    gap: 16px;
+    margin: 0 !important;
+    padding: 0 !important;
     list-style: none;
   }
   .header-top .contact-info li {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     white-space: nowrap;
   }
-  /* the theme forces these icons to block on small screens */
-  .header-top .contact-info li i.font-icon,
-  .header-top .contact-info li i.sm-display-block {
+  .header-top .contact-info li i {
     display: inline-block !important;
-    margin: 0 6px 0 0;
+    margin: 0 6px 0 0 !important;
   }
-  .header-top .element {
+  .header-top .header-top-right .element {
     margin: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center;
   }
   .header-top .styled-icons {
-    margin: 0;
-    display: flex;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
     align-items: center;
     gap: 6px;
   }
-  .header-top .styled-icons li { margin: 0; }
+  .header-top .styled-icons li {
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+  }
 }
 
-/* Tablets and large phones: tighten spacing and type */
+/* Tablets: everything still fits, just tightened */
 @media (max-width: 991px) {
   .header-top { font-size: 13px; }
-  .header-top .contact-info { gap: 14px; }
-  .header-top .contact-info a { font-size: 13px; }
-  .header-top .btn { padding: 5px 12px; font-size: 12px; }
-  .header-top .styled-icons a { width: 26px; height: 26px; line-height: 26px; font-size: 12px; }
+  .header-top .contact-info { gap: 12px; }
+  .header-top .contact-info li a { font-size: 13px; }
+  header#header .header-top .styled-icons li a {
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 26px !important;
+    font-size: 13px !important;
+  }
+  header#header .header-top .header-top-right .btn {
+    padding: 5px 12px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
 }
 
-/* Phones: social icons are already in the footer, so drop them here */
+/* Phones: drop the email so the phone number, the social icons and the
+   button all keep their place on one line. The email is still in the
+   footer and on the contact page. */
 @media (max-width: 767px) {
   .header-top {
     font-size: 12px;
     padding-top: 5px !important;
     padding-bottom: 5px !important;
   }
-  .header-top .btn { line-height: 1.4; }
-  .header-top .contact-info { gap: 12px; }
-  .header-top .contact-info a { font-size: 12px; }
-  .header-top .styled-icons { display: none !important; }
-  .header-top .btn { padding: 4px 10px; font-size: 11px; }
+  .header-top .contact-info li.contact-email { display: none !important; }
+  .header-top .contact-info li a { font-size: 12px; }
+  .header-top .styled-icons { gap: 5px; }
+  .header-top .header-top-right { gap: 8px; }
+  header#header .header-top .styled-icons li a {
+    width: 27px !important;
+    height: 27px !important;
+    line-height: 23px !important;
+    font-size: 12px !important;
+  }
+  header#header .header-top .header-top-right .btn {
+    padding: 4px 9px !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+  }
 }
 
-/* Small phones: keep the phone number and the button, drop the email */
-@media (max-width: 480px) {
-  .header-top .contact-email { display: none !important; }
-  .header-top .contact-info a { font-size: 12px; }
-}
-
-/* Very small phones: the phone number alone, still tappable */
-@media (max-width: 360px) {
-  .header-top .btn { padding: 4px 8px; font-size: 10px; }
+/* Small phones */
+@media (max-width: 400px) {
+  header#header .header-top .contact-phone a { font-size: 11px !important; }
+  header#header .header-top .styled-icons li a {
+    width: 24px !important;
+    height: 24px !important;
+    line-height: 20px !important;
+    font-size: 11px !important;
+  }
+  header#header .header-top .header-top-right .btn {
+    padding: 4px 7px !important;
+    font-size: 10px !important;
+  }
 }
