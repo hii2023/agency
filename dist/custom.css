@@ -1,0 +1,305 @@
+.bg1 {
+    background: #F2F5F8 !important;
+}
+
+.pt-20 {padding-top: 20px !important;}
+.pb-20 {padding-bottom: 20px !important;}
+
+.mt-30 {margin-top: 30px !important;}
+
+.nav-pills .nav-link {
+    margin-bottom: 10px !important;
+}
+
+
+
+
+
+@keyframes pulsate {
+    0% {
+        transform: scale(0.9, 0.9);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2, 1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.9, 0.9);
+        opacity: 1;
+    }
+}
+
+@keyframes callb {
+    0% {
+        transform: scale(0.9);
+    }
+    20% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.1);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    80% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1.4);
+    }
+}
+
+@keyframes calla {
+    0% {
+        box-shadow: 0px 0px 0px 4px rgba(162, 162, 162, 0.8);
+    }
+    20% {
+        box-shadow: 0px 0px 0px 6px rgba(162, 162, 162, 0.6);
+    }
+    40% {
+        box-shadow: 0px 0px 0px 8px rgba(162, 162, 162, 0.4);
+    }
+    60% {
+        box-shadow: 0px 0px 0px 10px rgba(162, 162, 162, 0.2);
+    }
+    80% {
+        box-shadow: 0px 0px 0px 12px rgba(162, 162, 162, 0.1);
+    }
+    100% {
+        box-shadow: 0px 0px 0px 14px rgba(162, 162, 162, 0);
+    }
+}
+
+.fix {
+    display: block;
+}
+
+.fixed {
+    position: fixed;
+    padding: 0px;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    background: transparent;
+    /* /border-top: 1px solid #e2e2e2;
+    /display: none;
+    /; */
+}
+
+.ff5 {
+    padding: 0px;
+}
+
+.end {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.end li {
+    display: inline;
+    text-align: left;
+    list-style: none;
+    position: absolute;
+    text-align: center;
+    height: 60px;
+    bottom: 10px;
+    width: 60px;
+    border-radius: 1px solid #000;
+    animation-name: calla;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    background: #df0505;
+    line-height: 60px;
+    border-radius: 50%;
+}
+
+.ph-fx {
+    left: 20px;
+}
+
+.end li a {
+    text-decoration: none;
+    position: absolute;
+    z-index: 9;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.ph-fx a i {
+    color: #fff !important;
+}
+
+.end li a i {
+    font-size: 34px;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    -webkit-animation: pulsate 1s ease-out;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: infinite;
+    display: block;
+    height: 30px;
+    width: 32px;
+    line-height: 57px;
+    color: #fff;
+    margin: 0 auto;
+    z-index: 99;
+}
+
+.end li {
+    display: inline;
+    text-align: left;
+    list-style: none;
+    position: absolute;
+    text-align: center;
+    height: 60px;
+    bottom: 10px;
+    width: 60px;
+    border-radius: 1px solid red;
+    animation-name: calla;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    background: red;
+    line-height: 60px;
+    border-radius: 50%;
+}
+
+.wh-fx {
+    right: 20px;
+    background: #1d9c13 !important;
+}
+
+.end li a {
+    text-decoration: none;
+    position: absolute;
+    z-index: 9;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.end li a i {
+    font-size: 34px;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    -webkit-animation: pulsate 1s ease-out;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: infinite;
+    display: block;
+    height: 30px;
+    width: 32px;
+    line-height: 50px;
+    color: #fff;
+    margin: 0 auto;
+    z-index: 99;
+}
+
+
+/* ===================================================================
+   Axiotrix | top bar single-line fix
+   Add to the END of css/custom.css
+
+   Problem: .header-top uses col-xl-auto, so its two columns only sit
+   side by side above 1200px. Below that they stack, which turns the
+   blue bar into three rows and eats most of a phone screen.
+
+   Fix: force a single nowrap row from 1199px down, then progressively
+   drop the least important items so it always fits.
+   =================================================================== */
+
+@media (max-width: 1199px) {
+  /* the theme adds 15px top and 30px bottom padding here, which is what
+     actually made the bar tall even once the row was on one line */
+  .header-top {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+  .header-top .row {
+    flex-wrap: nowrap;
+    align-items: center;
+    min-height: 0;
+  }
+  .header-top .header-top-left,
+  .header-top .header-top-right {
+    width: auto;
+    max-width: none;
+    flex: 0 0 auto;
+    text-align: left !important;
+  }
+  .header-top .header-top-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-top .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .header-top .contact-info li {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+  /* the theme forces these icons to block on small screens */
+  .header-top .contact-info li i.font-icon,
+  .header-top .contact-info li i.sm-display-block {
+    display: inline-block !important;
+    margin: 0 6px 0 0;
+  }
+  .header-top .element {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .header-top .styled-icons {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .header-top .styled-icons li { margin: 0; }
+}
+
+/* Tablets and large phones: tighten spacing and type */
+@media (max-width: 991px) {
+  .header-top { font-size: 13px; }
+  .header-top .contact-info { gap: 14px; }
+  .header-top .contact-info a { font-size: 13px; }
+  .header-top .btn { padding: 5px 12px; font-size: 12px; }
+  .header-top .styled-icons a { width: 26px; height: 26px; line-height: 26px; font-size: 12px; }
+}
+
+/* Phones: social icons are already in the footer, so drop them here */
+@media (max-width: 767px) {
+  .header-top {
+    font-size: 12px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+  .header-top .btn { line-height: 1.4; }
+  .header-top .contact-info { gap: 12px; }
+  .header-top .contact-info a { font-size: 12px; }
+  .header-top .styled-icons { display: none !important; }
+  .header-top .btn { padding: 4px 10px; font-size: 11px; }
+}
+
+/* Small phones: keep the phone number and the button, drop the email */
+@media (max-width: 480px) {
+  .header-top .contact-email { display: none !important; }
+  .header-top .contact-info a { font-size: 12px; }
+}
+
+/* Very small phones: the phone number alone, still tappable */
+@media (max-width: 360px) {
+  .header-top .btn { padding: 4px 8px; font-size: 10px; }
+}
