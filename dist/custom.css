@@ -222,8 +222,8 @@
 
 @media (max-width: 1199px) {
   .header-top {
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
+    padding-top: 17px !important;
+    padding-bottom: 17px !important;
   }
   .header-top .row {
     flex-wrap: nowrap !important;
@@ -304,11 +304,7 @@
    button all keep their place on one line. The email is still in the
    footer and on the contact page. */
 @media (max-width: 767px) {
-  .header-top {
-    font-size: 12px;
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
-  }
+  .header-top { font-size: 12px; }
   .header-top .contact-info li.contact-email { display: none !important; }
   .header-top .contact-info li a { font-size: 12px; }
   .header-top .styled-icons { gap: 5px; }
