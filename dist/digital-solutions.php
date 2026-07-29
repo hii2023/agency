@@ -61,6 +61,107 @@
     </div>
 </section>
 
+<!--=============== How We Help Start Here ===============-->
+<section>
+    <div class="container pt-20 pb-40">
+        <div class="section-title">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="tm-sc-section-title section-title text-center">
+                        <div class="title-wrapper">
+                            <h6 class="subtitle text-theme-colored1">How we help</h6>
+                            <h2 class="title text-theme-colored2">Five things we can set up for your business</h2>
+                            <p>Start with the one you need most. Each one fixes a real, everyday problem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="about-style-current-theme">
+                <div class="row">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#website-creation"> <i class="flaticon-business-002-graph"></i> </a>
+                                <h5 class="icon-box-title">Get found online</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>People search online before they choose who to buy from. We build a fast, clear site that shows up in that search, reads as credible, and makes it one click to enquire, book or buy. If you sell products, we can set up a webstore that fits the way you already take orders.</p>
+                                    <p><b>Impact:</b> People who never knew about you start calling, enquiring and ordering.</p>
+                                    <a class="text-theme-colored1" href="#website-creation"><b>See the use cases &#10230;</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#tool-development"> <i class="flaticon-business-013-idea"></i> </a>
+                                <h5 class="icon-box-title">Custom tools</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>Estimates, customer records, status tracking: if your team does it by hand every day, we can build a simple tool that does it for them. Where it genuinely helps, we add AI to the tool, so it reads, sorts and drafts the repetitive parts instead of your team doing it.</p>
+                                    <p><b>Impact:</b> Work that used to fill an afternoon now takes minutes, and nothing gets missed.</p>
+                                    <a class="text-theme-colored1" href="#tool-development"><b>See the use cases &#10230;</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#reports"> <i class="flaticon-business-016-world"></i> </a>
+                                <h5 class="icon-box-title">Know your numbers</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>Revenue, orders, outstanding payments, where your best customers come from: one simple screen, updated automatically. No spreadsheet wrangling, no month-end surprises.</p>
+                                    <p><b>Impact:</b> You catch problems the same week they start, not at month end when it is too late.</p>
+                                    <a class="text-theme-colored1" href="#reports"><b>See the use cases &#10230;</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#automation"> <i class="flaticon-business-035-helpline"></i> </a>
+                                <h5 class="icon-box-title">Automatic follow-ups</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>Acknowledgements, payment reminders, appointment and renewal alerts: set them once, and they go out at the right time to the right person. Nobody has to remember.</p>
+                                    <p><b>Impact:</b> Customers stop slipping away just because the team had a busy week.</p>
+                                    <a class="text-theme-colored1" href="#automation"><b>See the use cases &#10230;</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#whatsapp-integration"> <i class="flaticon-business-002-graph"></i> </a>
+                                <h5 class="icon-box-title">Messaging and WhatsApp</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>Customers text and message more than they call. We set up WhatsApp and SMS properly: one-tap contact buttons, instant replies to common questions, and every conversation logged where your team can see it.</p>
+                                    <p><b>Impact:</b> Reaching you takes one tap, and no message goes unanswered, even after hours.</p>
+                                    <a class="text-theme-colored1" href="#whatsapp-integration"><b>See the use cases &#10230;</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=============== How We Help End Here ===============-->
+
 <!--=============== Get found online Start Here ===============-->
 <section id="website-creation" class="our-about">
     <div class="container pt-sm-20 pt-md-40">
@@ -172,6 +273,79 @@
     </div>
 </section>
 <!--=============== Get found online End Here ===============-->
+<section class="bg1">
+    <div class="container pt-40 pb-40">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tm-sc-section-title section-title">
+                        <div class="title-wrapper">
+                            <h3 class="title">How we deliver: Get found online</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="about-style-current-theme">
+                <div class="row">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
+                                <h5 class="icon-box-title">1. Discovery</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>A short call to understand your business, your ideal client, and the one thing the site must do.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
+                                <h5 class="icon-box-title">2. Design draft</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We send a working draft in days. You react, we refine.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
+                                <h5 class="icon-box-title">3. Build and launch</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We connect your domain, forms and analytics, then go live.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
+                                <h5 class="icon-box-title">4. Handover</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>You get the keys, a walkthrough, and a simple way to edit content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--=============== Custom tools Start Here ===============-->
 <section id="tool-development" class="our-about">
@@ -294,6 +468,92 @@
     </div>
 </section>
 <!--=============== Custom tools End Here ===============-->
+<section class="bg1">
+    <div class="container pt-40 pb-40">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tm-sc-section-title section-title">
+                        <div class="title-wrapper">
+                            <h3 class="title">How we deliver: Custom tools</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="about-style-current-theme">
+                <div class="row">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
+                                <h5 class="icon-box-title">1. Map the workflow</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We watch how you do it today and find the slow, repetitive parts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
+                                <h5 class="icon-box-title">2. Pick the right approach</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We decide where plain automation is enough and where AI genuinely pays for itself, so you are not buying technology you do not need.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
+                                <h5 class="icon-box-title">3. Prototype</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>A clickable version so you feel it before we build the full thing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
+                                <h5 class="icon-box-title">4. Build and test</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We build it, load your real data, and fix what feels off.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
+                                <h5 class="icon-box-title">5. Roll out</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We train your team and stay on hand for the first weeks.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--=============== Know your numbers Start Here ===============-->
 <section id="reports" class="our-about">
@@ -392,6 +652,79 @@
     </div>
 </section>
 <!--=============== Know your numbers End Here ===============-->
+<section class="bg1">
+    <div class="container pt-40 pb-40">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tm-sc-section-title section-title">
+                        <div class="title-wrapper">
+                            <h3 class="title">How we deliver: Know your numbers</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="about-style-current-theme">
+                <div class="row">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
+                                <h5 class="icon-box-title">1. Pick the metrics</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We agree on the handful of numbers that drive your decisions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
+                                <h5 class="icon-box-title">2. Connect sources</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We plug in your data wherever it already lives.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
+                                <h5 class="icon-box-title">3. Design the view</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>A clean layout that answers your questions at a glance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
+                                <h5 class="icon-box-title">4. Automate delivery</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>Reports refresh and arrive on schedule, no manual work.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--=============== Automatic follow-ups Start Here ===============-->
 <section id="automation" class="our-about">
@@ -499,6 +832,79 @@
     </div>
 </section>
 <!--=============== Automatic follow-ups End Here ===============-->
+<section class="bg1">
+    <div class="container pt-40 pb-40">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tm-sc-section-title section-title">
+                        <div class="title-wrapper">
+                            <h3 class="title">How we deliver: Automatic follow-ups</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="about-style-current-theme">
+                <div class="row">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
+                                <h5 class="icon-box-title">1. Find the leaks</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We spot where enquiries, renewals and tasks slip through today.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
+                                <h5 class="icon-box-title">2. Design the flow</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We map each trigger, message and timing rule with you.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
+                                <h5 class="icon-box-title">3. Build and connect</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We wire it to your tools and test with real cases.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
+                                <h5 class="icon-box-title">4. Watch and tune</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>We monitor the first runs and tighten what needs it.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--=============== Messaging and WhatsApp Start Here ===============-->
 <section id="whatsapp-integration" class="our-about">
@@ -597,16 +1003,14 @@
     </div>
 </section>
 <!--=============== Messaging and WhatsApp End Here ===============-->
-
-<!--=============== How We Work Start Here ===============-->
 <section class="bg1">
-    <div class="container pt-40 pb-60">
+    <div class="container pt-40 pb-40">
         <div class="section-title">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="tm-sc-section-title section-title text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tm-sc-section-title section-title">
                         <div class="title-wrapper">
-                            <h2 class="title text-theme-colored2">How We Work</h2>
+                            <h3 class="title">How we deliver: Messaging and WhatsApp</h3>
                         </div>
                     </div>
                 </div>
@@ -615,54 +1019,54 @@
         <div class="section-content">
             <div class="about-style-current-theme">
                 <div class="row">
-                    <div class="col-sm-6 col-xl-3">
+                    <div class="col-md-6 col-xl-3">
                         <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
-                                <h5 class="icon-box-title">1. Discovery</h5>
+                                <h5 class="icon-box-title">1. Map the conversation</h5>
                             </div>
                             <div class="icon-text">
                                 <div class="content">
-                                    <p>A short call to understand your business, your ideal client, and the one thing the site must do.</p>
+                                    <p>We list the messages customers actually send you today.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
+                    <div class="col-md-6 col-xl-3">
                         <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
-                                <h5 class="icon-box-title">2. Design draft</h5>
+                                <h5 class="icon-box-title">2. Choose the setup</h5>
                             </div>
                             <div class="icon-text">
                                 <div class="content">
-                                    <p>We send a working draft in days. You react, we refine.</p>
+                                    <p>Simple click-to-message, or full Business API where you need scale.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
+                    <div class="col-md-6 col-xl-3">
                         <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
-                                <h5 class="icon-box-title">3. Build and launch</h5>
+                                <h5 class="icon-box-title">3. Build the flows</h5>
                             </div>
                             <div class="icon-text">
                                 <div class="content">
-                                    <p>We connect your domain, forms and analytics, then go live.</p>
+                                    <p>Buttons, auto-replies and logging, wired into your systems.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
+                    <div class="col-md-6 col-xl-3">
                         <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
-                                <h5 class="icon-box-title">4. Handover</h5>
+                                <h5 class="icon-box-title">4. Launch and refine</h5>
                             </div>
                             <div class="icon-text">
                                 <div class="content">
-                                    <p>You get the keys, a walkthrough, and a simple way to edit content.</p>
+                                    <p>We go live and tune the replies using real conversations.</p>
                                 </div>
                             </div>
                         </div>
@@ -672,7 +1076,263 @@
         </div>
     </div>
 </section>
-<!--=============== How We Work End Here ===============-->
+
+<!--=============== Why It Matters Start Here ===============-->
+<section class="bg-img-no-repeat bg-img-cover layer-overlay overlay-theme-colored2-9" data-tm-bg-img="images/bg/bg1.jpg">
+    <div class="container">
+        <div class="section-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="agency-wrapper statistics-content mt--0 pl--0">
+                        <h6 class="subtitle text-theme-colored1">Why it matters</h6>
+                        <h2 class="title">Your team should be serving customers, not doing repetitive admin</h2>
+                        <p data-tm-text-color="#9bb6d0">Most teams lose hours every day answering the same questions, chasing paperwork and re-keying information between systems. We set up simple systems that do this work for you, so your team's time goes where it earns.</p>
+                        <div class="tm-sc-unordered-list list-style1">
+                            <ul>
+                                    <li>We explain everything in plain words. No technical jargon.</li>
+                                    <li>Built around what your customer needs to do: call, book, or enquire.</li>
+                                    <li>You own everything. No lock-in, no monthly fee to keep your own website.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-box text-center">
+                        <div class="thumb"> <img src="images/about/2.jpg" class="img-thumbnail" alt="Axiotrix Digital Solutions"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg1">
+    <div class="container pt-60 pb-40">
+        <div class="section-content">
+            <div class="about-style-current-theme">
+                <div class="row">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
+                                <h5 class="icon-box-title">Everything in your name</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content"><p>Website, data, accounts</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
+                                <h5 class="icon-box-title">See a demo in 48h</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content"><p>Before you pay in full</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
+                                <h5 class="icon-box-title">Works while you rest</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content"><p>Replies and reminders go out on their own</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
+                                <h5 class="icon-box-title">One team for everything</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content"><p>The same team you already work with</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=============== Why It Matters End Here ===============-->
+
+<!--=============== Testimonials Start Here ===============-->
+<section>
+    <div class="container pt-60 pb-40">
+        <div class="section-title">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="tm-sc-section-title section-title text-center">
+                        <div class="title-wrapper">
+                            <h6 class="subtitle text-theme-colored1">What clients say</h6>
+                            <h2 class="title text-theme-colored2">Results, in their words</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="row">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="tm-sc-testimonials testimonials-style-current-theme mb-30">
+                            <div class="testimonial-text-holder p-30 border-radius-5" data-tm-bg-color="#fff">
+                                <div class="author-text">"Enquiries used to sit in three different inboxes. Now every one is logged and answered the same day."</div>
+                                <div class="wrapper d-flex mt-20">
+                                    <div class="testimonial-author-info-holder">
+                                        <h5 class="name mb-0">Operations Manager</h5>
+                                        <p class="position mb-0">Multi-location service business</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="tm-sc-testimonials testimonials-style-current-theme mb-30">
+                            <div class="testimonial-text-holder p-30 border-radius-5" data-tm-bg-color="#fff">
+                                <div class="author-text">"The estimate tool paid for itself in a month. Customers get a number right away and we stopped rebuilding quotes by hand."</div>
+                                <div class="wrapper d-flex mt-20">
+                                    <div class="testimonial-author-info-holder">
+                                        <h5 class="name mb-0">Managing Partner</h5>
+                                        <p class="position mb-0">Professional services firm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="tm-sc-testimonials testimonials-style-current-theme mb-30">
+                            <div class="testimonial-text-holder p-30 border-radius-5" data-tm-bg-color="#fff">
+                                <div class="author-text">"One dashboard, opened every morning. We finally know which channels actually bring paying customers."</div>
+                                <div class="wrapper d-flex mt-20">
+                                    <div class="testimonial-author-info-holder">
+                                        <h5 class="name mb-0">Founder</h5>
+                                        <p class="position mb-0">Retail and wholesale company</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=============== Testimonials End Here ===============-->
+
+<!--=============== FAQ Start Here ===============-->
+<section class="bg1">
+    <div class="container pt-60 pb-60">
+        <div class="section-title">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="tm-sc-section-title section-title text-center">
+                        <div class="title-wrapper">
+                            <h6 class="subtitle text-theme-colored1">Questions</h6>
+                            <h2 class="title text-theme-colored2">Before you get in touch</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion accordion-classic" id="axFaq">
+                    <div class="accordion-item mb-15">
+                        <h2 class="accordion-header" id="faqh0">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq0" aria-expanded="true" aria-controls="faq0">
+                                How long does it take?
+                            </button>
+                        </h2>
+                        <div id="faq0" class="accordion-collapse collapse show" aria-labelledby="faqh0" data-bs-parent="#axFaq">
+                            <div class="accordion-body">
+                                <p>You see a working first draft within 48 hours for most projects. Full delivery depends on scope, from a few days for a site to a couple of weeks for a full automation system.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-15">
+                        <h2 class="accordion-header" id="faqh1">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                Do we own the website and data?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" aria-labelledby="faqh1" data-bs-parent="#axFaq">
+                            <div class="accordion-body">
+                                <p>Yes, completely. Code, content, accounts and data are yours. There is no lock-in and you can move or edit anything at any time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-15">
+                        <h2 class="accordion-header" id="faqh2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                Can we start with just one service?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faqh2" data-bs-parent="#axFaq">
+                            <div class="accordion-body">
+                                <p>Absolutely. Most clients start with the website or the messaging setup, then add tools, reports and automation once they see the value.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-15">
+                        <h2 class="accordion-header" id="faqh3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                How do payments work?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faqh3" data-bs-parent="#axFaq">
+                            <div class="accordion-body">
+                                <p>A fixed scope with a clear price, agreed before we start. Usually part upfront and the rest on delivery. No surprise invoices.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-15">
+                        <h2 class="accordion-header" id="faqh4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                What if we are not sure what we need?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faqh4" data-bs-parent="#axFaq">
+                            <div class="accordion-body">
+                                <p>That is normal. Describe the problem in plain words and we will come back with a recommendation, a plan and a price. No pressure.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-15">
+                        <h2 class="accordion-header" id="faqh5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                Do we actually need AI in this?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faqh5" data-bs-parent="#axFaq">
+                            <div class="accordion-body">
+                                <p>Only where it pays for itself. We look at your process first, then use AI for the parts that involve reading, sorting or drafting at volume. Everywhere else, plain automation is cheaper and more reliable. Either way it goes inside the tool your team already uses, so adoption does not depend on anyone changing how they work.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-15">
+                        <h2 class="accordion-header" id="faqh6">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                                How does this fit with the rest of Axiotrix?
+                            </button>
+                        </h2>
+                        <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faqh6" data-bs-parent="#axFaq">
+                            <div class="accordion-body">
+                                <p>It is the same team and the same account. If Axiotrix already supports your operations, this simply extends that to your website, customer messaging and reporting.</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=============== FAQ End Here ===============-->
 
 <!--=============== Let's Connect Start Here ===============-->
 <section id="connect" class="border-bottom">

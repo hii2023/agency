@@ -177,8 +177,9 @@ ${cards}
 const pills = C.services.map(s =>
   `                        <li class="nav-item"><a class="nav-link" href="#${s.slug}">${esc(s.eyebrow)}</a></li>`).join('\n');
 
-/* ---- how we work ---- */
-const steps = C.services[0].steps.map((st, k) => `                    <div class="col-sm-6 col-xl-3">
+/* ---- each service gets its own process steps, as on the standalone site ---- */
+function stepsSection(s) {
+  const cols = s.steps.map((st, k) => `                    <div class="col-md-6 col-xl-${s.steps.length > 4 ? '4' : '3'}">
                         <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="${FLAT_ICONS[k % FLAT_ICONS.length]}"></i> </a>
@@ -192,8 +193,102 @@ const steps = C.services[0].steps.map((st, k) => `                    <div class
                         </div>
                     </div>`).join('\n');
 
+  return `<section class="bg1">
+    <div class="container pt-40 pb-40">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tm-sc-section-title section-title">
+                        <div class="title-wrapper">
+                            <h3 class="title">How we deliver: ${esc(s.eyebrow)}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="about-style-current-theme">
+                <div class="row">
+${cols}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>`;
+}
+
+/* ---- overview cards, mirroring the "How we help" grid on the standalone site ---- */
+const overviewCards = C.services.map((s, i) => `                    <div class="col-md-6 col-xl-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#${s.slug}"> <i class="${FLAT_ICONS[i % FLAT_ICONS.length]}"></i> </a>
+                                <h5 class="icon-box-title">${esc(s.eyebrow)}</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content">
+                                    <p>${esc(s.text)}</p>
+                                    <p><b>Impact:</b> ${esc(s.impact)}</p>
+                                    <a class="text-theme-colored1" href="#${s.slug}"><b>See the use cases &#10230;</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`).join('\n');
+
+/* ---- why it matters ---- */
+const whyPoints = [
+  'We explain everything in plain words. No technical jargon.',
+  "Built around what your customer needs to do: call, book, or enquire.",
+  'You own everything. No lock-in, no monthly fee to keep your own website.'
+].map(p => `                                    <li>${esc(p)}</li>`).join('\n');
+
+const trustTiles = [
+  ['Everything in your name', 'Website, data, accounts'],
+  ['See a demo in 48h', 'Before you pay in full'],
+  ['Works while you rest', 'Replies and reminders go out on their own'],
+  ['One team for everything', 'The same team you already work with']
+].map(([t, d], k) => `                    <div class="col-sm-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                            <div class="icon-wrapper">
+                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="${FLAT_ICONS[k % FLAT_ICONS.length]}"></i> </a>
+                                <h5 class="icon-box-title">${esc(t)}</h5>
+                            </div>
+                            <div class="icon-text">
+                                <div class="content"><p>${esc(d)}</p></div>
+                            </div>
+                        </div>
+                    </div>`).join('\n');
+
+/* ---- testimonials ---- */
+const testimonialItems = C.testimonials.map(t => `                    <div class="col-md-6 col-xl-4">
+                        <div class="tm-sc-testimonials testimonials-style-current-theme mb-30">
+                            <div class="testimonial-text-holder p-30 border-radius-5" data-tm-bg-color="#fff">
+                                <div class="author-text">"${esc(t.quote)}"</div>
+                                <div class="wrapper d-flex mt-20">
+                                    <div class="testimonial-author-info-holder">
+                                        <h5 class="name mb-0">${esc(t.name)}</h5>
+                                        <p class="position mb-0">${esc(t.role)}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`).join('\n');
+
+/* ---- FAQ, using the theme's bootstrap accordion ---- */
+const faqItems = C.faq.map((f, k) => `                    <div class="accordion-item mb-15">
+                        <h2 class="accordion-header" id="faqh${k}">
+                            <button class="accordion-button${k === 0 ? '' : ' collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#faq${k}" aria-expanded="${k === 0 ? 'true' : 'false'}" aria-controls="faq${k}">
+                                ${esc(f.q)}
+                            </button>
+                        </h2>
+                        <div id="faq${k}" class="accordion-collapse collapse${k === 0 ? ' show' : ''}" aria-labelledby="faqh${k}" data-bs-parent="#axFaq">
+                            <div class="accordion-body">
+                                <p>${esc(f.a)}</p>
+                            </div>
+                        </div>
+                    </div>`).join('\n');
+
 const body = C.services.map((s, i) =>
-  introSection(s, i) + '\n' + useCaseSection(s, i)).join('\n\n');
+  introSection(s, i) + '\n' + useCaseSection(s, i) + '\n' + stepsSection(s)).join('\n\n');
 
 const php = `<? include("template.php");
     function main() {
@@ -254,17 +349,17 @@ ${pills}
     </div>
 </section>
 
-${body}
-
-<!--=============== How We Work Start Here ===============-->
-<section class="bg1">
-    <div class="container pt-40 pb-60">
+<!--=============== How We Help Start Here ===============-->
+<section>
+    <div class="container pt-20 pb-40">
         <div class="section-title">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="tm-sc-section-title section-title text-center">
                         <div class="title-wrapper">
-                            <h2 class="title text-theme-colored2">How We Work</h2>
+                            <h6 class="subtitle text-theme-colored1">${esc(C.home.servicesEyebrow)}</h6>
+                            <h2 class="title text-theme-colored2">${esc(C.home.servicesTitle)}</h2>
+                            <p>${esc(C.home.servicesText)}</p>
                         </div>
                     </div>
                 </div>
@@ -273,13 +368,106 @@ ${body}
         <div class="section-content">
             <div class="about-style-current-theme">
                 <div class="row">
-${steps}
+${overviewCards}
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--=============== How We Work End Here ===============-->
+<!--=============== How We Help End Here ===============-->
+
+${body}
+
+<!--=============== Why It Matters Start Here ===============-->
+<section class="bg-img-no-repeat bg-img-cover layer-overlay overlay-theme-colored2-9" data-tm-bg-img="images/bg/bg1.jpg">
+    <div class="container">
+        <div class="section-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="agency-wrapper statistics-content mt--0 pl--0">
+                        <h6 class="subtitle text-theme-colored1">${esc(C.home.whyEyebrow)}</h6>
+                        <h2 class="title">${esc(C.home.whyTitle)}</h2>
+                        <p data-tm-text-color="#9bb6d0">${esc(C.home.whyText)}</p>
+                        <div class="tm-sc-unordered-list list-style1">
+                            <ul>
+${whyPoints}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-box text-center">
+                        <div class="thumb"> <img src="images/about/2.jpg" class="img-thumbnail" alt="Axiotrix Digital Solutions"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg1">
+    <div class="container pt-60 pb-40">
+        <div class="section-content">
+            <div class="about-style-current-theme">
+                <div class="row">
+${trustTiles}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=============== Why It Matters End Here ===============-->
+
+<!--=============== Testimonials Start Here ===============-->
+<section>
+    <div class="container pt-60 pb-40">
+        <div class="section-title">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="tm-sc-section-title section-title text-center">
+                        <div class="title-wrapper">
+                            <h6 class="subtitle text-theme-colored1">What clients say</h6>
+                            <h2 class="title text-theme-colored2">Results, in their words</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="row">
+${testimonialItems}
+            </div>
+        </div>
+    </div>
+</section>
+<!--=============== Testimonials End Here ===============-->
+
+<!--=============== FAQ Start Here ===============-->
+<section class="bg1">
+    <div class="container pt-60 pb-60">
+        <div class="section-title">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="tm-sc-section-title section-title text-center">
+                        <div class="title-wrapper">
+                            <h6 class="subtitle text-theme-colored1">Questions</h6>
+                            <h2 class="title text-theme-colored2">Before you get in touch</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion accordion-classic" id="axFaq">
+${faqItems}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=============== FAQ End Here ===============-->
 
 <!--=============== Let's Connect Start Here ===============-->
 <section id="connect" class="border-bottom">
