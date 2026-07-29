@@ -1,0 +1,105 @@
+/* ===================================================================
+   Axiotrix | top bar single-line fix
+   Add to the END of css/custom.css
+
+   Problem: .header-top uses col-xl-auto, so its two columns only sit
+   side by side above 1200px. Below that they stack, which turns the
+   blue bar into three rows and eats most of a phone screen.
+
+   Fix: force a single nowrap row from 1199px down, then progressively
+   drop the least important items so it always fits.
+   =================================================================== */
+
+@media (max-width: 1199px) {
+  /* the theme adds 15px top and 30px bottom padding here, which is what
+     actually made the bar tall even once the row was on one line */
+  .header-top {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+  .header-top .row {
+    flex-wrap: nowrap;
+    align-items: center;
+    min-height: 0;
+  }
+  .header-top .header-top-left,
+  .header-top .header-top-right {
+    width: auto;
+    max-width: none;
+    flex: 0 0 auto;
+    text-align: left !important;
+  }
+  .header-top .header-top-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-top .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .header-top .contact-info li {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+  /* the theme forces these icons to block on small screens */
+  .header-top .contact-info li i.font-icon,
+  .header-top .contact-info li i.sm-display-block {
+    display: inline-block !important;
+    margin: 0 6px 0 0;
+  }
+  .header-top .element {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .header-top .styled-icons {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .header-top .styled-icons li { margin: 0; }
+}
+
+/* Tablets and large phones: tighten spacing and type */
+@media (max-width: 991px) {
+  .header-top { font-size: 13px; }
+  .header-top .contact-info { gap: 14px; }
+  .header-top .contact-info a { font-size: 13px; }
+  .header-top .btn { padding: 5px 12px; font-size: 12px; }
+  .header-top .styled-icons a { width: 26px; height: 26px; line-height: 26px; font-size: 12px; }
+}
+
+/* Phones: social icons are already in the footer, so drop them here */
+@media (max-width: 767px) {
+  .header-top {
+    font-size: 12px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+  .header-top .btn { line-height: 1.4; }
+  .header-top .contact-info { gap: 12px; }
+  .header-top .contact-info a { font-size: 12px; }
+  .header-top .styled-icons { display: none !important; }
+  .header-top .btn { padding: 4px 10px; font-size: 11px; }
+}
+
+/* Small phones: keep the phone number and the button, drop the email */
+@media (max-width: 480px) {
+  .header-top .contact-email { display: none !important; }
+  .header-top .contact-info a { font-size: 12px; }
+}
+
+/* Very small phones: the phone number alone, still tappable */
+@media (max-width: 360px) {
+  .header-top .btn { padding: 4px 8px; font-size: 10px; }
+}
