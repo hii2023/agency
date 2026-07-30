@@ -3,6 +3,45 @@
     $heading="Digital Solutions";
 ?>
 
+<style>
+/* Scoped to this page. Fixes three things the theme grid does not handle
+   for these card rows:
+   1. cards in a row had different heights, leaving a ragged bottom edge
+   2. a five-card row left an orphan hanging left in a three-column grid
+   3. the step sequence needed a number, not a repeated icon (the theme
+      only ships four flaticons) */
+.ax-grid > [class*="col-"] { display: flex; }
+.ax-grid > [class*="col-"] > .icon-box,
+.ax-grid > [class*="col-"] > .tm-sc-testimonials {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ax-grid .icon-text { flex: 1 1 auto; }
+.ax-grid .testimonial-text-holder { height: 100%; display: flex; flex-direction: column; }
+.ax-grid .testimonial-text-holder .wrapper { margin-top: auto; }
+
+.ax-step-num {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #0795fe;
+  color: #fff;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 46px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.ax-card { transition: box-shadow .25s ease, transform .25s ease; }
+.ax-card:hover { box-shadow: 0 12px 30px rgba(9, 42, 73, .10); }
+
+@media (max-width: 767px) {
+  .ax-step-num { width: 40px; height: 40px; line-height: 40px; font-size: 17px; }
+}
+</style>
+
 <!--==================== Breadcrumb Section Start Here ====================-->
 <section class="page-title divider layer-overlay overlay-theme-colored2-8 section-typo-light bg-img-center" data-tm-bg-img="images/bg/bg7.jpg">
     <div class="container pt-90 pb-90">
@@ -79,9 +118,9 @@
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                <div class="row ax-grid justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#website-creation"> <i class="flaticon-business-002-graph"></i> </a>
                                 <h5 class="icon-box-title">Get found online</h5>
@@ -95,8 +134,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#tool-development"> <i class="flaticon-business-013-idea"></i> </a>
                                 <h5 class="icon-box-title">Custom tools</h5>
@@ -110,8 +149,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#reports"> <i class="flaticon-business-016-world"></i> </a>
                                 <h5 class="icon-box-title">Know your numbers</h5>
@@ -125,8 +164,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#automation"> <i class="flaticon-business-035-helpline"></i> </a>
                                 <h5 class="icon-box-title">Automatic follow-ups</h5>
@@ -140,8 +179,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#whatsapp-integration"> <i class="flaticon-business-002-graph"></i> </a>
                                 <h5 class="icon-box-title">Messaging and WhatsApp</h5>
@@ -288,13 +327,11 @@
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
-                                <h5 class="icon-box-title">1. Discovery</h5>
-                            </div>
+                <div class="row ax-grid justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">1</div>
+                            <h5 class="icon-box-title mt-0">Discovery</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>A short call to understand your business, your ideal client, and the one thing the site must do.</p>
@@ -302,12 +339,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
-                                <h5 class="icon-box-title">2. Design draft</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">2</div>
+                            <h5 class="icon-box-title mt-0">Design draft</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We send a working draft in days. You react, we refine.</p>
@@ -315,12 +350,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
-                                <h5 class="icon-box-title">3. Build and launch</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">3</div>
+                            <h5 class="icon-box-title mt-0">Build and launch</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We connect your domain, forms and analytics, then go live.</p>
@@ -328,12 +361,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
-                                <h5 class="icon-box-title">4. Handover</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">4</div>
+                            <h5 class="icon-box-title mt-0">Handover</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>You get the keys, a walkthrough, and a simple way to edit content.</p>
@@ -405,9 +436,9 @@
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                <div class="row ax-grid justify-content-center">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#tool-development"> <i class="flaticon-business-002-graph"></i> </a>
                                 <h5 class="icon-box-title">The instant quote or estimate tool</h5>
@@ -420,8 +451,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#tool-development"> <i class="flaticon-business-013-idea"></i> </a>
                                 <h5 class="icon-box-title">The internal tracker that replaces the spreadsheet</h5>
@@ -434,8 +465,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#tool-development"> <i class="flaticon-business-016-world"></i> </a>
                                 <h5 class="icon-box-title">The AI assistant built into your workflow</h5>
@@ -448,8 +479,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#tool-development"> <i class="flaticon-business-035-helpline"></i> </a>
                                 <h5 class="icon-box-title">The customer-facing portal</h5>
@@ -483,13 +514,11 @@
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
-                                <h5 class="icon-box-title">1. Map the workflow</h5>
-                            </div>
+                <div class="row ax-grid justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">1</div>
+                            <h5 class="icon-box-title mt-0">Map the workflow</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We watch how you do it today and find the slow, repetitive parts.</p>
@@ -497,12 +526,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
-                                <h5 class="icon-box-title">2. Pick the right approach</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">2</div>
+                            <h5 class="icon-box-title mt-0">Pick the right approach</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We decide where plain automation is enough and where AI genuinely pays for itself, so you are not buying technology you do not need.</p>
@@ -510,12 +537,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
-                                <h5 class="icon-box-title">3. Prototype</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">3</div>
+                            <h5 class="icon-box-title mt-0">Prototype</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>A clickable version so you feel it before we build the full thing.</p>
@@ -523,12 +548,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
-                                <h5 class="icon-box-title">4. Build and test</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">4</div>
+                            <h5 class="icon-box-title mt-0">Build and test</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We build it, load your real data, and fix what feels off.</p>
@@ -536,12 +559,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
-                                <h5 class="icon-box-title">5. Roll out</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">5</div>
+                            <h5 class="icon-box-title mt-0">Roll out</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We train your team and stay on hand for the first weeks.</p>
@@ -667,13 +688,11 @@
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
-                                <h5 class="icon-box-title">1. Pick the metrics</h5>
-                            </div>
+                <div class="row ax-grid justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">1</div>
+                            <h5 class="icon-box-title mt-0">Pick the metrics</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We agree on the handful of numbers that drive your decisions.</p>
@@ -681,12 +700,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
-                                <h5 class="icon-box-title">2. Connect sources</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">2</div>
+                            <h5 class="icon-box-title mt-0">Connect sources</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We plug in your data wherever it already lives.</p>
@@ -694,12 +711,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
-                                <h5 class="icon-box-title">3. Design the view</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">3</div>
+                            <h5 class="icon-box-title mt-0">Design the view</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>A clean layout that answers your questions at a glance.</p>
@@ -707,12 +722,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
-                                <h5 class="icon-box-title">4. Automate delivery</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">4</div>
+                            <h5 class="icon-box-title mt-0">Automate delivery</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>Reports refresh and arrive on schedule, no manual work.</p>
@@ -783,9 +796,9 @@
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                <div class="row ax-grid justify-content-center">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#automation"> <i class="flaticon-business-002-graph"></i> </a>
                                 <h5 class="icon-box-title">The follow-up that never gets forgotten</h5>
@@ -798,8 +811,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#automation"> <i class="flaticon-business-013-idea"></i> </a>
                                 <h5 class="icon-box-title">The appointment and renewal reminder</h5>
@@ -812,8 +825,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#automation"> <i class="flaticon-business-016-world"></i> </a>
                                 <h5 class="icon-box-title">The behind-the-scenes hand-off</h5>
@@ -847,13 +860,11 @@
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
-                                <h5 class="icon-box-title">1. Find the leaks</h5>
-                            </div>
+                <div class="row ax-grid justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">1</div>
+                            <h5 class="icon-box-title mt-0">Find the leaks</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We spot where enquiries, renewals and tasks slip through today.</p>
@@ -861,12 +872,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
-                                <h5 class="icon-box-title">2. Design the flow</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">2</div>
+                            <h5 class="icon-box-title mt-0">Design the flow</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We map each trigger, message and timing rule with you.</p>
@@ -874,12 +883,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
-                                <h5 class="icon-box-title">3. Build and connect</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">3</div>
+                            <h5 class="icon-box-title mt-0">Build and connect</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We wire it to your tools and test with real cases.</p>
@@ -887,12 +894,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
-                                <h5 class="icon-box-title">4. Watch and tune</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">4</div>
+                            <h5 class="icon-box-title mt-0">Watch and tune</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We monitor the first runs and tighten what needs it.</p>
@@ -1018,13 +1023,11 @@
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-002-graph"></i> </a>
-                                <h5 class="icon-box-title">1. Map the conversation</h5>
-                            </div>
+                <div class="row ax-grid justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">1</div>
+                            <h5 class="icon-box-title mt-0">Map the conversation</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We list the messages customers actually send you today.</p>
@@ -1032,12 +1035,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-013-idea"></i> </a>
-                                <h5 class="icon-box-title">2. Choose the setup</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">2</div>
+                            <h5 class="icon-box-title mt-0">Choose the setup</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>Simple click-to-message, or full Business API where you need scale.</p>
@@ -1045,12 +1046,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-016-world"></i> </a>
-                                <h5 class="icon-box-title">3. Build the flows</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">3</div>
+                            <h5 class="icon-box-title mt-0">Build the flows</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>Buttons, auto-replies and logging, wired into your systems.</p>
@@ -1058,12 +1057,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="flaticon-business-035-helpline"></i> </a>
-                                <h5 class="icon-box-title">4. Launch and refine</h5>
-                            </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">4</div>
+                            <h5 class="icon-box-title mt-0">Launch and refine</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>We go live and tune the replies using real conversations.</p>
@@ -1109,7 +1106,7 @@
     <div class="container pt-60 pb-40">
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
+                <div class="row ax-grid">
                     <div class="col-sm-6 col-xl-3">
                         <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
@@ -1177,7 +1174,7 @@
             </div>
         </div>
         <div class="section-content">
-            <div class="row">
+            <div class="row ax-grid">
                     <div class="col-md-6 col-xl-4">
                         <div class="tm-sc-testimonials testimonials-style-current-theme mb-30">
                             <div class="testimonial-text-holder p-30 border-radius-5" data-tm-bg-color="#fff">

@@ -133,8 +133,8 @@ ${boxes}
 <!--=============== ${s.eyebrow} End Here ===============-->`;
   }
 
-  const cards = s.usecases.map((u, k) => `                    <div class="col-sm-6 col-xl-3">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+  const cards = s.usecases.map((u, k) => `                    <div class="col-md-6 col-xl-3">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#${s.slug}"> <i class="${FLAT_ICONS[k % FLAT_ICONS.length]}"></i> </a>
                                 <h5 class="icon-box-title">${esc(u.t)}</h5>
@@ -163,7 +163,7 @@ ${boxes}
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
+                <div class="row ax-grid justify-content-center">
 ${cards}
                 </div>
             </div>
@@ -179,12 +179,13 @@ const pills = C.services.map(s =>
 
 /* ---- each service gets its own process steps, as on the standalone site ---- */
 function stepsSection(s) {
-  const cols = s.steps.map((st, k) => `                    <div class="col-md-6 col-xl-${s.steps.length > 4 ? '4' : '3'}">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
-                            <div class="icon-wrapper">
-                                <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#connect"> <i class="${FLAT_ICONS[k % FLAT_ICONS.length]}"></i> </a>
-                                <h5 class="icon-box-title">${k + 1}. ${esc(st.t)}</h5>
-                            </div>
+  /* A numbered sequence, so the number is the visual anchor rather than an
+     icon. The theme only ships four flaticons, so icons repeated on any
+     service with five steps. Numbers also read correctly as an order. */
+  const cols = s.steps.map((st, k) => `                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 mb-30 p-30 border-radius-5 ax-card" data-tm-bg-color="#fff">
+                            <div class="ax-step-num">${k + 1}</div>
+                            <h5 class="icon-box-title mt-0">${esc(st.t)}</h5>
                             <div class="icon-text">
                                 <div class="content">
                                     <p>${esc(st.d)}</p>
@@ -208,7 +209,7 @@ function stepsSection(s) {
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
+                <div class="row ax-grid justify-content-center">
 ${cols}
                 </div>
             </div>
@@ -218,8 +219,8 @@ ${cols}
 }
 
 /* ---- overview cards, mirroring the "How we help" grid on the standalone site ---- */
-const overviewCards = C.services.map((s, i) => `                    <div class="col-md-6 col-xl-4">
-                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5" data-tm-bg-color="#fff">
+const overviewCards = C.services.map((s, i) => `                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-box iconbox-theme-colored1 animate-icon-on-hover animate-icon-rotate mb-30 p-20 border-radius-5 ax-card" data-tm-bg-color="#fff">
                             <div class="icon-wrapper">
                                 <a class="icon icon-dark icon-lg icon-rounded mb-2" href="#${s.slug}"> <i class="${FLAT_ICONS[i % FLAT_ICONS.length]}"></i> </a>
                                 <h5 class="icon-box-title">${esc(s.eyebrow)}</h5>
@@ -295,6 +296,45 @@ const php = `<? include("template.php");
     $heading="Digital Solutions";
 ?>
 
+<style>
+/* Scoped to this page. Fixes three things the theme grid does not handle
+   for these card rows:
+   1. cards in a row had different heights, leaving a ragged bottom edge
+   2. a five-card row left an orphan hanging left in a three-column grid
+   3. the step sequence needed a number, not a repeated icon (the theme
+      only ships four flaticons) */
+.ax-grid > [class*="col-"] { display: flex; }
+.ax-grid > [class*="col-"] > .icon-box,
+.ax-grid > [class*="col-"] > .tm-sc-testimonials {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ax-grid .icon-text { flex: 1 1 auto; }
+.ax-grid .testimonial-text-holder { height: 100%; display: flex; flex-direction: column; }
+.ax-grid .testimonial-text-holder .wrapper { margin-top: auto; }
+
+.ax-step-num {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #0795fe;
+  color: #fff;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 46px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.ax-card { transition: box-shadow .25s ease, transform .25s ease; }
+.ax-card:hover { box-shadow: 0 12px 30px rgba(9, 42, 73, .10); }
+
+@media (max-width: 767px) {
+  .ax-step-num { width: 40px; height: 40px; line-height: 40px; font-size: 17px; }
+}
+</style>
+
 <!--==================== Breadcrumb Section Start Here ====================-->
 <section class="page-title divider layer-overlay overlay-theme-colored2-8 section-typo-light bg-img-center" data-tm-bg-img="images/bg/bg7.jpg">
     <div class="container pt-90 pb-90">
@@ -367,7 +407,7 @@ ${pills}
         </div>
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
+                <div class="row ax-grid justify-content-center">
 ${overviewCards}
                 </div>
             </div>
@@ -408,7 +448,7 @@ ${whyPoints}
     <div class="container pt-60 pb-40">
         <div class="section-content">
             <div class="about-style-current-theme">
-                <div class="row">
+                <div class="row ax-grid">
 ${trustTiles}
                 </div>
             </div>
@@ -433,7 +473,7 @@ ${trustTiles}
             </div>
         </div>
         <div class="section-content">
-            <div class="row">
+            <div class="row ax-grid">
 ${testimonialItems}
             </div>
         </div>
